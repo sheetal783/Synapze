@@ -1,4 +1,4 @@
-# ✅ SkillFlare Production Deployment Checklist
+# ✅ Synapze Production Deployment Checklist
 
 **Master Checklist for Deployment Success**
 
@@ -151,8 +151,8 @@
 
 - [ ] **Image Security Scan**
   ```bash
-  trivy image skillflare-backend:latest
-  trivy image skillflare-frontend:latest
+  trivy image Synapze-backend:latest
+  trivy image Synapze-frontend:latest
   # Expected: 0 critical vulnerabilities ✅
   ```
 

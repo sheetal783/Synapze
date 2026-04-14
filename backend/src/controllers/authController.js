@@ -2,6 +2,8 @@ import User from "../models/User.js";
 import asyncHandler from "../utils/asyncHandler.js";
 import { sendTokenResponse } from "../utils/tokenUtils.js";
 import jwt from "jsonwebtoken";
+import { randomBytes } from "node:crypto";
+import { getFirebaseAuth } from "../config/firebaseAdmin.js";
 import {
   normalizeEmail,
   validateEmailForRegistration,
@@ -17,8 +19,7 @@ const GENERIC_AUTH_ERROR = {
 
 const GENERIC_REGISTRATION_ERROR = {
   success: false,
-  message:
-    "Registration could not be completed. Please ensure you're using your institutional email.",
+  message: "Registration could not be completed. Please verify your details and try again.",
 };
 
 const GENERIC_PASSWORD_RESET_RESPONSE = {
@@ -105,6 +106,105 @@ export const login = asyncHandler(async (req, res) => {
   }
 
   sendTokenResponse(user, 200, res);
+});
+
+/**
+ * @desc    Firebase Sign-In/Sign-Up (verify Firebase ID token, then issue JWT)
+ * @route   POST /api/auth/firebase
+ * @access  Public
+ */
+export const firebaseAuth = asyncHandler(async (req, res) => {
+  const { idToken, role: requestedRole, name } = req.body;
+
+  if (!idToken || typeof idToken !== "string") {
+    return res.status(400).json({
+      success: false,
+      message: "Firebase ID token is required",
+    });
+  }
+
+  let decodedToken;
+  let firebaseAuthClient;
+  try {
+    firebaseAuthClient = getFirebaseAuth();
+  } catch (error) {
+    return res.status(503).json({
+      success: false,
+      message: "Firebase auth is not configured on the server",
+      error: error.message,
+    });
+  }
+
+  try {
+    decodedToken = await firebaseAuthClient.verifyIdToken(idToken);
+  } catch {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid Firebase token",
+    });
+  }
+
+  const normalizedEmailValue = normalizeEmail(decodedToken.email);
+  if (!normalizedEmailValue) {
+    return res.status(400).json({
+      success: false,
+      message: "Firebase account must include a valid email",
+    });
+  }
+
+  let user = await User.findOne({
+    $or: [{ firebaseUid: decodedToken.uid }, { email: normalizedEmailValue }],
+  });
+
+  // Existing account path: attach firebase UID if email matches existing local account
+  if (user) {
+    if (user.firebaseUid && user.firebaseUid !== decodedToken.uid) {
+      return res.status(409).json({
+        success: false,
+        message: "This email is already linked to a different Firebase account",
+      });
+    }
+
+    if (!user.firebaseUid) {
+      user.firebaseUid = decodedToken.uid;
+      await user.save({ validateBeforeSave: false });
+    }
+
+    return sendTokenResponse(user, 200, res);
+  }
+
+  // New account path: keep current institutional-domain policy
+  const emailValidation = validateEmailForRegistration(normalizedEmailValue);
+  if (!emailValidation.valid) {
+    return res.status(400).json({
+      success: false,
+      message: emailValidation.error,
+    });
+  }
+
+  const role = resolveEmailRole(normalizedEmailValue, requestedRole);
+  if (!role) {
+    return res.status(400).json(GENERIC_REGISTRATION_ERROR);
+  }
+
+  const firebaseUserName =
+    name ||
+    decodedToken.name ||
+    normalizedEmailValue.split("@")[0] ||
+    "Synapze User";
+
+  user = await User.create({
+    name: firebaseUserName,
+    email: normalizedEmailValue,
+    password: randomBytes(32).toString("hex"),
+    role,
+    authProvider: "firebase",
+    firebaseUid: decodedToken.uid,
+    avatar: decodedToken.picture || "",
+    skills: [],
+  });
+
+  return sendTokenResponse(user, 201, res);
 });
 
 /**
@@ -236,11 +336,11 @@ export const forgotPassword = asyncHandler(async (req, res) => {
     const { sendEmail } = await import("../utils/emailService.js");
     await sendEmail({
       to: user.email,
-      subject: "Password Reset Request - SkillFlare",
+      subject: "Password Reset Request - Synapze",
       html: `
         <h2>Password Reset Request</h2>
         <p>Hello ${user.name},</p>
-        <p>You requested a password reset for your SkillFlare account (${user.email}).</p>
+        <p>You requested a password reset for your Synapze account (${user.email}).</p>
         <p>Click the link below to reset your password:</p>
         <a href="${resetUrl}" style="display: inline-block; padding: 10px 20px; background-color: #f97316; color: white; text-decoration: none; border-radius: 5px;">
           Reset Password
@@ -253,7 +353,7 @@ export const forgotPassword = asyncHandler(async (req, res) => {
           <li>Resets only work for your registered email: ${user.email}</li>
           <li>Ignore this if you didn't request it</li>
         </ul>
-        <p>Best regards,<br>SkillFlare Security Team</p>
+        <p>Best regards,<br>Synapze Security Team</p>
       `,
     });
 
@@ -337,12 +437,12 @@ export const resetPassword = asyncHandler(async (req, res) => {
       const { sendEmail } = await import("../utils/emailService.js");
       await sendEmail({
         to: user.email,
-        subject: "Password Reset Successful - SkillFlare",
+        subject: "Password Reset Successful - Synapze",
         html: `
           <h2>Password Reset Successful</h2>
           <p>Your password for ${user.email} has been reset.</p>
           <p>If this wasn't you, contact support immediately.</p>
-          <p>Best regards,<br>SkillFlare Security Team</p>
+          <p>Best regards,<br>Synapze Security Team</p>
         `,
       });
     } catch (error) {
@@ -374,6 +474,7 @@ export const resetPassword = asyncHandler(async (req, res) => {
 export default {
   register,
   login,
+  firebaseAuth,
   getSession,
   logout,
   getMe,

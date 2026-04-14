@@ -116,17 +116,17 @@ const Register = () => {
   return (
     <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
       <div className="max-w-md w-full">
-        <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+        <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-orange/20">
-              <UserPlus className="w-8 h-8 text-brand-orange" />
+            <div className="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-accent/20">
+              <UserPlus className="w-8 h-8 text-brand-accent" />
             </div>
             <h2 className="text-3xl font-bold text-white tracking-tight">
               Create Account
             </h2>
             <p className="text-brand-text-secondary mt-2">
-              Join SkillFlare and start collaborating
+              Join Synapze and start collaborating
             </p>
           </div>
 
@@ -141,7 +141,7 @@ const Register = () => {
                 Full Name
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <User className="h-5 w-5" />
                 </div>
                 <input
@@ -171,7 +171,7 @@ const Register = () => {
                 Email Address
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <Mail className="h-5 w-5" />
                 </div>
                 <input
@@ -192,9 +192,9 @@ const Register = () => {
               )}
               {/* Auto-detected Role Badge */}
               {formData.email && !errors.email && detectedRole && (
-                <div className="mt-2 flex items-center gap-2 px-3 py-2 rounded-lg bg-brand-orange/10 border border-brand-orange/20">
-                  <ShieldCheck className="w-4 h-4 text-brand-orange" />
-                  <span className="text-sm text-brand-orange font-medium">
+                <div className="mt-2 flex items-center gap-2 px-3 py-2 rounded-lg bg-brand-accent/10 border border-brand-accent/20">
+                  <ShieldCheck className="w-4 h-4 text-brand-accent" />
+                  <span className="text-sm text-brand-accent font-medium">
                     Role detected:{" "}
                     <span className="font-bold uppercase">
                       {detectedRole === "teacher" ? "Faculty" : "Student"}
@@ -222,7 +222,7 @@ const Register = () => {
                 Password
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <Lock className="h-5 w-5" />
                 </div>
                 <input
@@ -238,7 +238,7 @@ const Register = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-orange transition-colors"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-accent transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />
@@ -263,7 +263,7 @@ const Register = () => {
                 Confirm Password
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <Lock className="h-5 w-5" />
                 </div>
                 <input
@@ -300,7 +300,7 @@ const Register = () => {
               Already have an account?{" "}
               <Link
                 to="/login"
-                className="text-brand-orange font-bold hover:underline"
+                className="text-brand-accent font-bold hover:underline"
               >
                 Sign in
               </Link>

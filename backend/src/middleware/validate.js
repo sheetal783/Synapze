@@ -110,6 +110,16 @@ export const loginRules = validate([
   { field: "password", type: "string", required: true },
 ]);
 
+export const firebaseAuthRules = validate([
+  {
+    field: "idToken",
+    type: "string",
+    required: true,
+    min: 20,
+    message: "Firebase ID token is required",
+  },
+]);
+
 export const updatePasswordRules = validate([
   {
     field: "currentPassword",

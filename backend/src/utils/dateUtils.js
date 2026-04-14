@@ -1,5 +1,5 @@
 /**
- * Date utility functions for SkillFlare backend
+ * Date utility functions for Synapze backend
  * Handles date conversions between frontend (DD-MM-YYYY) and database formats
  */
 

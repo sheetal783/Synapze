@@ -58,12 +58,12 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img
-              src="/logo.png"
-              alt="SkillFlare Logo"
-              className="w-10 h-10 object-contain drop-shadow-[0_0_8px_rgba(255,107,53,0.5)] transition-transform group-hover:scale-110"
+              src="/logo.jpeg"
+              alt="Synapze Logo"
+              className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
             />
-            <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-brand-orange transition-colors">
-              SkillFlare
+            <span className="font-display font-bold text-xl tracking-tight text-white group-hover:text-brand-accent transition-colors">
+              Synapze
             </span>
           </Link>
 
@@ -95,7 +95,7 @@ const Navbar = () => {
 
             <Link
               to="/developers"
-              className="px-4 py-2 ml-1 text-sm font-medium text-white bg-brand-orange hover:bg-[#ff7a3a] rounded-full transition-all shadow-glow"
+              className="btn-primary px-4 py-2 ml-1 text-sm font-medium text-white rounded-full transition-all shadow-glow"
             >
               Developers
             </Link>
@@ -108,9 +108,9 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setIsProfileMenuOpen(!isProfileMenuOpen)}
-                  className="flex items-center space-x-2 pl-2 pr-1 py-1 rounded-full bg-brand-surface border border-brand-border hover:border-brand-orange/50 transition-all"
+                  className="flex items-center space-x-2 pl-2 pr-1 py-1 rounded-full bg-brand-surface border border-brand-border hover:border-brand-accent/50 transition-all"
                 >
-                  <div className="w-8 h-8 rounded-full bg-brand-orange/20 flex items-center justify-center text-brand-orange font-bold text-sm">
+                  <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent font-bold text-sm">
                     {user?.name?.charAt(0).toUpperCase()}
                   </div>
                   <ChevronDown size={14} className="text-gray-400" />
@@ -130,7 +130,7 @@ const Navbar = () => {
                           isAdminUser(user)
                             ? "bg-purple-500/20 text-purple-400"
                             : user?.role === "teacher"
-                              ? "bg-brand-orange/20 text-brand-orange"
+                              ? "bg-brand-accent/20 text-brand-accent"
                               : "bg-blue-500/20 text-blue-400"
                         }`}
                       >
@@ -141,7 +141,7 @@ const Navbar = () => {
                     <Link
                       to="/post-task"
                       onClick={() => setIsProfileMenuOpen(false)}
-                      className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-white/5 hover:text-brand-orange transition-colors"
+                      className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-white/5 hover:text-brand-accent transition-colors"
                     >
                       <PlusCircle size={18} />
                       <span>Post Task</span>
@@ -228,7 +228,7 @@ const Navbar = () => {
               <Link
                 to="/developers"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="flex items-center space-x-3 px-4 py-3 text-white bg-brand-orange hover:bg-[#ff7a3a] rounded-xl shadow-glow"
+                className="flex items-center space-x-3 px-4 py-3 text-white btn-primary rounded-xl shadow-glow"
               >
                 <User size={20} />
                 <span>Developers</span>

@@ -194,7 +194,7 @@ const fetchMentorContext = async (userId) => {
  */
 export const getPlatformOverview = () => {
   return {
-    name: "SkillFlare",
+    name: "Synapze",
     type: "Collaborative Skill-Building Platform",
     description:
       "A comprehensive platform for learning, skill development, and peer mentorship",
@@ -552,7 +552,7 @@ export const formatContextForPrompt = (context) => {
   // Platform Overview
   contextStr += "=== PLATFORM CONTEXT ===\n";
   contextStr +=
-    "Platform: SkillFlare - A collaborative skill-building platform\n";
+    "Platform: Synapze - A collaborative skill-building platform\n";
   contextStr += `Your Name: Buddy AI - Your helpful learning assistant\n\n`;
 
   // Role and Access

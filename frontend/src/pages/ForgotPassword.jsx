@@ -65,11 +65,11 @@ const ForgotPassword = () => {
   return (
     <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
       <div className="max-w-md w-full">
-        <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+        <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-orange/20">
-              <Mail className="w-8 h-8 text-brand-orange" />
+            <div className="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-accent/20">
+              <Mail className="w-8 h-8 text-brand-accent" />
             </div>
             <h2 className="text-3xl font-bold text-white tracking-tight">
               Forgot Password
@@ -108,7 +108,7 @@ const ForgotPassword = () => {
                     setSubmitted(false);
                     setMessage("");
                   }}
-                  className="w-full px-4 py-2 bg-brand-orange hover:bg-brand-orange-hover text-white font-medium rounded-lg transition-colors"
+                  className="w-full px-4 py-2 bg-brand-accent hover:bg-brand-accent-hover text-white font-medium rounded-lg transition-colors"
                 >
                   Send Another Link
                 </button>
@@ -126,7 +126,7 @@ const ForgotPassword = () => {
                   Email Address
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                     <Mail className="h-5 w-5" />
                   </div>
                   <input
@@ -147,7 +147,7 @@ const ForgotPassword = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full btn bg-brand-orange hover:bg-brand-orange-hover text-white font-semibold py-2.5 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full btn bg-brand-accent hover:bg-brand-accent-hover text-white font-semibold py-2.5 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {loading ? <ButtonLoading /> : "Send Reset Link"}
               </button>
@@ -156,7 +156,7 @@ const ForgotPassword = () => {
               <div className="text-center">
                 <Link
                   to="/login"
-                  className="text-sm text-brand-text-secondary hover:text-brand-orange transition-colors inline-flex items-center gap-2"
+                  className="text-sm text-brand-text-secondary hover:text-brand-accent transition-colors inline-flex items-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back to Login

@@ -8,25 +8,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Redefined MITS Brand Palette for Dark Theme
-        mits: {
-          blue: '#3b82f6',        // Keeping blue as secondary accent
-          'blue-light': '#60a5fa',
-          'blue-dark': '#2563eb',
-          orange: '#f97316',      // Main accent (Orange-500)
-          'orange-light': '#fb923c',
-          'orange-dark': '#ea580c',
-          green: '#22c55e',
-          'green-light': '#4ade80',
-          'green-dark': '#16a34a',
-        },
+        // Redefined Brand Palette for Dark Theme
         brand: {
-          dark: '#121212',        // Main background
-          card: '#1e1e1e',        // Card background
-          border: '#2d2d2d',      // Border color
-          surface: '#252525',     // Elevated surface
-          orange: '#f97316',      // Primary Brand Color
-          'orange-hover': '#ea580c',
+          dark: '#020204',        // Main background
+          card: '#0a0a0f',        // Card background
+          border: 'rgba(255,255,255,0.15)',      // Border color
+          surface: '#0e0e15',     // Elevated surface
+          accent: '#b6a0ff',      // Primary Brand Color
+          'accent-hover': '#8f77d6',
           text: {
             primary: '#ffffff',
             secondary: '#a1a1aa',
@@ -36,11 +25,11 @@ export default {
         // Legacy support (mapping to new system)
         background: {
           light: '#F8FAFC',
-          dark: '#121212',
+          dark: '#020204',
         },
         surface: {
           light: '#FFFFFF',
-          dark: '#1e1e1e',
+          dark: '#0a0a0f',
         },
         text: {
           primary: '#0F172A',
@@ -51,17 +40,17 @@ export default {
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'sans-serif'],
+        display: ['Manrope', 'sans-serif'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'hero-glow': 'radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15), transparent 70%)',
-        'card-gradient': 'linear-gradient(135deg, rgba(30, 30, 30, 0.8) 0%, rgba(18, 18, 18, 0.9) 100%)',
+        'hero-glow': 'radial-gradient(circle at 50% 50%, rgba(104, 156, 255, 0.12), transparent 70%)',
+        'card-gradient': 'linear-gradient(135deg, rgba(30, 30, 40, 0.5) 0%, rgba(10, 10, 15, 0.8) 100%)',
       },
       boxShadow: {
         'card': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.15)',
         'card-hover': '0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2)',
-        'glow': '0 0 20px rgba(249, 115, 22, 0.3)',
+        'glow': '0 0 20px rgba(182, 160, 255, 0.3)',
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-out',
@@ -86,3 +75,6 @@ export default {
   },
   plugins: [],
 }
+
+
+

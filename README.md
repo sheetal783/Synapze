@@ -1,8 +1,8 @@
-# MITS SkillFlare 🎓
+# Synapze 🎓
 
-A comprehensive student talent marketplace and mentorship platform for MITS. It empowers students and teachers to collaborate seamlessly through a task-based economy, professional mentorships, real-time messaging, and intelligent AI assistance.
+A comprehensive student talent marketplace and mentorship platform. It empowers students and teachers to collaborate seamlessly through a task-based economy, professional mentorships, real-time messaging, and intelligent AI assistance.
 
-![MITS SkillFlare](https://via.placeholder.com/800x200/F57C00/FFFFFF?text=MITS+SkillFlare)
+![Synapze](https://via.placeholder.com/800x200/F57C00/FFFFFF?text=Synapze)
 
 ## 🌟 Key Features
 
@@ -29,10 +29,10 @@ A comprehensive student talent marketplace and mentorship platform for MITS. It 
 
 ### 🤖 Buddy AI Assistant (Powered by Ollama)
 
-SkillFlare comes with an embedded, context-aware AI named **Buddy AI**.
+Synapze comes with an embedded, context-aware AI named **Buddy AI**.
 
 - Built on a dynamic backend architecture connected to **Ollama** (Mistral/Llama backend)
-- Trained specifically on the internal architecture of **MITS SkillFlare**.
+- Trained specifically on the internal architecture of **Synapze**.
 - Highly moderated to ensure completely safe, educational, and relevant outputs.
 - Acts as a real-time guide to navigating tasks, finding mentors, or general platform query solving.
 
@@ -40,7 +40,7 @@ SkillFlare comes with an embedded, context-aware AI named **Buddy AI**.
 
 - 🔒 **Secure Authorization:** JWT-based robust authentication with distinct Role-Based Access Controls.
 - 💬 **Real-Time Communication:** Live web sockets using `Socket.io` for instant messaging.
-- 👨‍💻 **Developer Hub:** Easily explore the passionate student team building SkillFlare.
+- 👨‍💻 **Developer Hub:** Easily explore the passionate student team building Synapze.
 - 🌙 **Dark-Mode First UI:** A modernized, sleek, and glow-textured interface.
 - 📱 **Mobile Responsive:** Fluid layout that operates gracefully on phones, tablets, and desktops.
 
@@ -85,8 +85,8 @@ Make sure you have installed on your local environment:
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/KD2303/MITS-CampusSkill.git
-   cd MITS-CampusSkill
+   git clone https://github.com/KD2303/Synapze.git
+   cd Synapze
    ```
 
 2. **Configure Backend**
@@ -139,7 +139,7 @@ _(Note: Run `ollama serve` if you are using AI functionalities)_
 ## 📁 Project Structure
 
 ```
-MITS-CampusSkill/
+Synapze/
 ├── backend/
 │   ├── src/
 │   │   ├── config/       # Environment & Local DB mapping
@@ -197,7 +197,7 @@ MITS-CampusSkill/
 #### Backend (.env)
 ```
 # Database
-MONGODB_URI=mongodb://localhost:27017/skillflare
+MONGODB_URI=mongodb://localhost:27017/Synapze
 
 # Authentication
 JWT_SECRET=your_secure_random_key_here
@@ -356,7 +356,7 @@ npm run db:migrate       # Run migrations
 
 ## 👨‍💻 Development Team
 
-**MITS SkillFlare Team:**
+**Synapze Team:**
 - **Project Mentor:** Dr. Devesh Kumar Lal
 - **Full Stack:** Krish Dargar
 - **Frontend:** Sheetal Gourh
@@ -394,4 +394,4 @@ This project is proprietary and licensed under PRIVATE license.
 
 ---
 
-_Made with ❤️ by MITS Students for MITS Students._
+_Made with ❤️ by Students for Students._

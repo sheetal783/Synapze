@@ -215,7 +215,7 @@ const DatePicker = ({
           placeholder={placeholder}
           className={`w-full bg-brand-dark border ${
             error ? "border-red-500" : "border-brand-border"
-          } rounded-xl p-4 pl-12 text-white focus:border-brand-orange transition-all outline-none font-bold placeholder:text-brand-text-muted/50 ${className}`}
+          } rounded-xl p-4 pl-12 text-white focus:border-brand-accent transition-all outline-none font-bold placeholder:text-brand-text-muted/50 ${className}`}
           maxLength="10"
         />
         <Calendar
@@ -301,7 +301,7 @@ const DatePicker = ({
                     : isDayDisabled(day)
                       ? "text-brand-text-muted/30 cursor-not-allowed"
                       : isSelected(day)
-                        ? "bg-brand-orange text-white shadow-glow"
+                        ? "bg-brand-accent text-white shadow-glow"
                         : isToday(day)
                           ? "bg-blue-500/20 text-blue-300 border border-blue-500/50"
                           : "text-brand-text-secondary hover:bg-white/10"
@@ -320,7 +320,7 @@ const DatePicker = ({
               const isoDate = today.toISOString().split("T")[0];
               validateAndSetDate(isoDate, today);
             }}
-            className="w-full mt-4 py-2 text-xs font-bold text-brand-orange hover:bg-brand-orange/10 rounded-lg transition-colors uppercase tracking-widest"
+            className="w-full mt-4 py-2 text-xs font-bold text-brand-accent hover:bg-brand-accent/10 rounded-lg transition-colors uppercase tracking-widest"
           >
             Today
           </button>

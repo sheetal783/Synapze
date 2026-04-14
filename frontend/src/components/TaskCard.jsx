@@ -46,7 +46,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwner }) => {
             className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
               task.posterRole === "teacher"
                 ? "bg-blue-500/10 text-blue-400 border border-blue-500/20"
-                : "bg-brand-orange/10 text-brand-orange border border-brand-orange/20"
+                : "bg-brand-accent/10 text-brand-accent border border-brand-accent/20"
             }`}
           >
             {task.posterRole}
@@ -59,8 +59,8 @@ const TaskCard = ({ task, onEdit, onDelete, isOwner }) => {
         </div>
         <div className="flex items-center space-x-2">
           {task.creditPoints > 0 && (
-            <div className="flex items-center space-x-1 text-brand-orange font-bold">
-              <Award size={16} className="text-brand-orange" />
+            <div className="flex items-center space-x-1 text-brand-accent font-bold">
+              <Award size={16} className="text-brand-accent" />
               <span className="text-sm">{task.creditPoints}</span>
             </div>
           )}
@@ -69,7 +69,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwner }) => {
               {onEdit && (
                 <button
                   onClick={handleEditClick}
-                  className="p-1.5 rounded-md hover:bg-brand-orange/20 text-brand-orange transition-colors"
+                  className="p-1.5 rounded-md hover:bg-brand-accent/20 text-brand-accent transition-colors"
                   title="Edit task"
                 >
                   <Edit size={16} />
@@ -90,7 +90,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwner }) => {
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-brand-orange transition-colors">
+      <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-brand-accent transition-colors">
         {task.title}
       </h3>
 
@@ -133,7 +133,7 @@ const TaskCard = ({ task, onEdit, onDelete, isOwner }) => {
               <span>Overdue</span>
             </span>
           ) : isUrgent ? (
-            <span className="text-brand-orange flex items-center space-x-1 font-medium">
+            <span className="text-brand-accent flex items-center space-x-1 font-medium">
               <Clock size={14} />
               <span>
                 {daysUntil === 0 ? "Due today" : `Due in ${daysUntil}d`}

@@ -1,7 +1,7 @@
 /**
  * Email Validation and Domain Verification Utility
  * Handles institutional email domain validation and verification logic
- * for SkillFlare platform access control
+ * for Synapze platform access control
  */
 
 /**
@@ -21,13 +21,10 @@ const APPROVED_DOMAINS = Object.keys(DOMAIN_ROLE_MAP);
 
 /**
  * Check if email domain restriction is enabled
- * Always enabled in production, can be overridden via env variable in dev
+ * Controlled entirely by env flag for temporary flexibility.
  */
 export const isEmailDomainRestrictionEnabled = () => {
-  return (
-    process.env.RESTRICT_EMAIL_DOMAIN === "true" ||
-    process.env.NODE_ENV === "production"
-  );
+  return process.env.RESTRICT_EMAIL_DOMAIN === "true";
 };
 
 /**
@@ -108,7 +105,7 @@ export const resolveUserRole = (email, requestedRole = null) => {
 
 /**
  * Validate email for registration
- * Checks: format validity, domain approval
+ * Checks: format validity, optional domain approval
  * @param {string} email - Email to validate
  * @returns {Object} { valid: boolean, error?: string }
  */
@@ -131,8 +128,8 @@ export const validateEmailForRegistration = (email) => {
     };
   }
 
-  // Check domain approval
-  if (!isApprovedDomain(normalizedEmail)) {
+  // Check domain approval only when restriction is enabled
+  if (isEmailDomainRestrictionEnabled() && !isApprovedDomain(normalizedEmail)) {
     return {
       valid: false,
       error: "Please use your institutional email (@mitsgwalior.in for faculty or @mitsgwl.ac.in for students)",

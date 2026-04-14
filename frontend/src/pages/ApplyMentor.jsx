@@ -136,7 +136,7 @@ const ApplyMentor = () => {
         <div className="card">
           <div className="px-4 py-5 sm:p-8">
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2.5 rounded-xl bg-brand-orange/10 text-brand-orange">
+              <div className="p-2.5 rounded-xl bg-brand-accent/10 text-brand-accent">
                 <GraduationCap size={24} />
               </div>
               <h3 className="text-2xl font-bold leading-6 text-white">Apply to be a Mentor</h3>
@@ -152,7 +152,7 @@ const ApplyMentor = () => {
                 <textarea
                   id="bio"
                   rows={4}
-                  className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange"
+                  className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent"
                   placeholder="Tell us about your experience and what you can teach..."
                   value={formData.bio}
                   onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
@@ -165,7 +165,7 @@ const ApplyMentor = () => {
               {/* ═══ Skills ═══ */}
               <div>
                 <label className="text-sm font-medium text-brand-text-secondary mb-3 flex items-center gap-2">
-                  <Award size={16} className="text-brand-orange" />
+                  <Award size={16} className="text-brand-accent" />
                   Skills &amp; Proficiency
                 </label>
                 <div className="space-y-3 mt-3">
@@ -176,7 +176,7 @@ const ApplyMentor = () => {
                         <button
                           type="button"
                           onClick={() => { setSkillDropdownOpen(skillDropdownOpen === index ? null : index); setSkillSearch(''); }}
-                          className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-brand-surface border border-brand-border text-left text-sm transition-colors hover:border-brand-orange/40 focus:outline-none focus:ring-1 focus:ring-brand-orange"
+                          className="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-brand-surface border border-brand-border text-left text-sm transition-colors hover:border-brand-accent/40 focus:outline-none focus:ring-1 focus:ring-brand-accent"
                         >
                           <span className={skill.name ? 'text-white' : 'text-brand-text-muted'}>
                             {skill.name || 'Select a skill...'}
@@ -189,7 +189,7 @@ const ApplyMentor = () => {
                             <div className="p-2 border-b border-brand-border">
                               <input
                                 type="text"
-                                className="w-full px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50"
+                                className="w-full px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-accent/50"
                                 placeholder="Search skills..."
                                 value={skillSearch}
                                 onChange={(e) => setSkillSearch(e.target.value)}
@@ -251,7 +251,7 @@ const ApplyMentor = () => {
                 <button
                   type="button"
                   onClick={addSkillField}
-                  className="mt-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl text-brand-orange bg-brand-orange/10 hover:bg-brand-orange/20 border border-brand-orange/20 transition-colors"
+                  className="mt-3 inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl text-brand-accent bg-brand-accent/10 hover:bg-brand-accent/20 border border-brand-accent/20 transition-colors"
                 >
                   <Plus size={16} />
                   Add another skill
@@ -261,7 +261,7 @@ const ApplyMentor = () => {
               {/* ═══ Social Media Links ═══ */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Globe size={16} className="text-brand-orange" />
+                  <Globe size={16} className="text-brand-accent" />
                   <label className="text-sm font-medium text-brand-text-secondary">Social Media Links</label>
                 </div>
                 <p className="text-xs text-brand-text-muted mb-4 ml-6">At least one social link is required <span className="text-red-400">*</span></p>
@@ -275,7 +275,7 @@ const ApplyMentor = () => {
                         </div>
                         <input
                           type="url"
-                          className="input pl-10 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange text-sm"
+                          className="input pl-10 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent text-sm"
                           placeholder={placeholder}
                           value={formData.socialLinks[key]}
                           onChange={(e) => handleSocialChange(key, e.target.value)}
@@ -292,7 +292,7 @@ const ApplyMentor = () => {
               {/* ═══ Coding Platform Links ═══ */}
               <div>
                 <div className="flex items-center gap-2 mb-1">
-                  <Code2 size={16} className="text-brand-orange" />
+                  <Code2 size={16} className="text-brand-accent" />
                   <label className="text-sm font-medium text-brand-text-secondary">Coding Platform Links</label>
                 </div>
                 <p className="text-xs text-brand-text-muted mb-4 ml-6">At least one coding platform is required <span className="text-red-400">*</span></p>
@@ -302,7 +302,7 @@ const ApplyMentor = () => {
                       <label className="block text-xs font-medium text-brand-text-muted mb-1.5">{label}</label>
                       <input
                         type="url"
-                        className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange text-sm"
+                        className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent text-sm"
                         placeholder={placeholder}
                         value={formData.codingPlatforms[key]}
                         onChange={(e) => handleCodingChange(key, e.target.value)}

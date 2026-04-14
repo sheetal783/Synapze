@@ -248,14 +248,14 @@ const MentorProfile = () => {
                   <button
                     type="button"
                     onClick={() => setEditData({ ...editData, isActive: !editData.isActive })}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${editData.isActive ? 'bg-mits-green' : 'bg-brand-border'}`}
+                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${editData.isActive ? 'bg-green-500' : 'bg-brand-border'}`}
                   >
                     <span className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${editData.isActive ? 'translate-x-6' : 'translate-x-1'}`} />
                   </button>
                 </label>
               ) : (
                 mentor.isActive && (
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-mits-green/10 text-mits-green border border-mits-green/20">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/10 text-green-500 border border-green-500/20">
                     active now
                   </span>
                 )
@@ -264,7 +264,7 @@ const MentorProfile = () => {
               {isOwner && !editing && (
                 <button
                   onClick={startEditing}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-xl text-brand-orange bg-brand-orange/10 hover:bg-brand-orange/20 border border-brand-orange/20 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-xl text-brand-accent bg-brand-accent/10 hover:bg-brand-accent/20 border border-brand-accent/20 transition-colors"
                 >
                   <Pencil size={14} />
                   Edit Profile
@@ -296,7 +296,7 @@ const MentorProfile = () => {
                   <div>
                     <textarea
                       rows={4}
-                      className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange"
+                      className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent"
                       value={editData.bio}
                       onChange={(e) => setEditData({ ...editData, bio: e.target.value })}
                       maxLength={500}
@@ -324,7 +324,7 @@ const MentorProfile = () => {
                           <button
                             type="button"
                             onClick={() => { setSkillDropdownOpen(skillDropdownOpen === index ? null : index); setSkillSearch(''); }}
-                            className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-left text-sm hover:border-brand-orange/40 focus:outline-none focus:ring-1 focus:ring-brand-orange transition-colors"
+                            className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-left text-sm hover:border-brand-accent/40 focus:outline-none focus:ring-1 focus:ring-brand-accent transition-colors"
                           >
                             <span className={skill.name ? 'text-white' : 'text-brand-text-muted'}>{skill.name || 'Select a skill...'}</span>
                             <ChevronDown size={14} className="text-brand-text-muted ml-2" />
@@ -334,7 +334,7 @@ const MentorProfile = () => {
                               <div className="p-2 border-b border-brand-border">
                                 <input
                                   type="text"
-                                  className="w-full px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50"
+                                  className="w-full px-3 py-2 rounded-lg bg-brand-surface border border-brand-border text-sm text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-accent/50"
                                   placeholder="Search skills..."
                                   value={skillSearch}
                                   onChange={(e) => setSkillSearch(e.target.value)}
@@ -377,17 +377,17 @@ const MentorProfile = () => {
                         )}
                       </div>
                     ))}
-                    <button type="button" onClick={addSkillField} className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg text-brand-orange bg-brand-orange/10 hover:bg-brand-orange/20 border border-brand-orange/20 transition-colors">
+                    <button type="button" onClick={addSkillField} className="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium rounded-lg text-brand-accent bg-brand-accent/10 hover:bg-brand-accent/20 border border-brand-accent/20 transition-colors">
                       <Plus size={14} /> Add skill
                     </button>
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-3">
                     {mentor.skills.map((skill, index) => (
-                      <div key={index} className={`flex items-center px-3 py-1.5 rounded-lg border ${skill.isVerified ? 'bg-brand-surface border-brand-orange/30' : 'bg-brand-surface border-brand-border'}`}>
+                      <div key={index} className={`flex items-center px-3 py-1.5 rounded-lg border ${skill.isVerified ? 'bg-brand-surface border-brand-accent/30' : 'bg-brand-surface border-brand-border'}`}>
                         <span className="text-sm text-white">{skill.name}</span>
                         {skill.level && levelBadge(skill.level)}
-                        {skill.isVerified && <CheckBadgeIcon className="h-4 w-4 ml-2 text-mits-green" />}
+                        {skill.isVerified && <CheckBadgeIcon className="h-4 w-4 ml-2 text-green-500" />}
                       </div>
                     ))}
                   </div>
@@ -402,7 +402,7 @@ const MentorProfile = () => {
                 <div className="mt-8 pt-8 border-t border-brand-border grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
                     <h3 className="text-sm font-semibold text-brand-text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                      <Globe size={14} className="text-brand-orange" /> Social Links
+                      <Globe size={14} className="text-brand-accent" /> Social Links
                     </h3>
                     <p className="text-xs text-brand-text-muted">At least one recommended</p>
                   </div>
@@ -416,7 +416,7 @@ const MentorProfile = () => {
                           </div>
                           <input
                             type="url"
-                            className="input pl-9 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange text-sm"
+                            className="input pl-9 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent text-sm"
                             placeholder={`https://${key}.com/...`}
                             value={editData.socialLinks[key] || ''}
                             onChange={(e) => setEditData({ ...editData, socialLinks: { ...editData.socialLinks, [key]: e.target.value } })}
@@ -431,7 +431,7 @@ const MentorProfile = () => {
                 <div className="mt-8 pt-8 border-t border-brand-border grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="md:col-span-1">
                     <h3 className="text-sm font-semibold text-brand-text-muted uppercase tracking-wider mb-2 flex items-center gap-2">
-                      <Code2 size={14} className="text-brand-orange" /> Coding Platforms
+                      <Code2 size={14} className="text-brand-accent" /> Coding Platforms
                     </h3>
                     <p className="text-xs text-brand-text-muted">At least one recommended</p>
                   </div>
@@ -441,7 +441,7 @@ const MentorProfile = () => {
                         <label className="block text-xs font-medium text-brand-text-muted mb-1.5">{label}</label>
                         <input
                           type="url"
-                          className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange text-sm"
+                          className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent text-sm"
                           placeholder={`https://${key}.com/...`}
                           value={editData.codingPlatforms[key] || ''}
                           onChange={(e) => setEditData({ ...editData, codingPlatforms: { ...editData.codingPlatforms, [key]: e.target.value } })}
@@ -463,7 +463,7 @@ const MentorProfile = () => {
                       if (!platform) return null;
                       const Icon = platform.icon;
                       return (
-                        <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text-secondary hover:text-white hover:border-brand-orange/30 transition-colors">
+                        <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text-secondary hover:text-white hover:border-brand-accent/30 transition-colors">
                           <Icon size={14} /> {platform.label} <ExternalLink size={10} className="text-brand-text-muted" />
                         </a>
                       );
@@ -472,7 +472,7 @@ const MentorProfile = () => {
                       const platform = CODING_PLATFORMS.find(p => p.key === key);
                       if (!platform) return null;
                       return (
-                        <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text-secondary hover:text-white hover:border-brand-orange/30 transition-colors">
+                        <a key={key} href={url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-surface border border-brand-border text-sm text-brand-text-secondary hover:text-white hover:border-brand-accent/30 transition-colors">
                           <Code2 size={14} /> {platform.label} <ExternalLink size={10} className="text-brand-text-muted" />
                         </a>
                       );
@@ -492,7 +492,7 @@ const MentorProfile = () => {
                 <h3 className="text-xl font-bold text-white">Request a Session</h3>
                 <p className="text-brand-text-secondary mt-1">Book a mentoring session with {mentor.userId.name}</p>
               </div>
-              <div className="mt-4 md:mt-0 inline-flex items-center px-4 py-2 rounded-lg bg-brand-orange/10 text-brand-orange border border-brand-orange/20">
+              <div className="mt-4 md:mt-0 inline-flex items-center px-4 py-2 rounded-lg bg-brand-accent/10 text-brand-accent border border-brand-accent/20">
                 <span className="font-bold mr-1">{sessionData.creditsUsed}</span> Credits required
               </div>
             </div>
@@ -504,7 +504,7 @@ const MentorProfile = () => {
                   <select
                     id="skill"
                     name="skill"
-                    className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange"
+                    className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent"
                     value={sessionData.skill}
                     onChange={(e) => setSessionData({ ...sessionData, skill: e.target.value })}
                     required
@@ -525,7 +525,7 @@ const MentorProfile = () => {
                       type="datetime-local"
                       name="sessionDate"
                       id="sessionDate"
-                      className="input pl-10 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange [color-scheme:dark]"
+                      className="input pl-10 w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent [color-scheme:dark]"
                       value={sessionData.sessionDate}
                       onChange={(e) => setSessionData({ ...sessionData, sessionDate: e.target.value })}
                       required
@@ -540,7 +540,7 @@ const MentorProfile = () => {
                   id="message"
                   name="message"
                   rows={4}
-                  className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-orange"
+                  className="input w-full bg-brand-surface text-white border-brand-border focus:ring-brand-accent"
                   placeholder="What do you want to learn? Share any specific topics or questions."
                   value={sessionData.message}
                   onChange={(e) => setSessionData({ ...sessionData, message: e.target.value })}

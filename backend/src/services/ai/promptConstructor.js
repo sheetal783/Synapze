@@ -7,9 +7,9 @@ import logger from "../../config/logger.js";
 
 // Prompt templates for different intents
 const PROMPT_TEMPLATES = {
-  task_help: `You are Buddy AI, an educational assistant on the SkillFlare platform helping a {role} understand a task without providing complete solutions.
+  task_help: `You are Buddy AI, an educational assistant on the Synapze platform helping a {role} understand a task without providing complete solutions.
 
-You have full knowledge of the SkillFlare platform, including:
+You have full knowledge of the Synapze platform, including:
 - Task management system
 - Mentorship connections
 - User skill tracking
@@ -68,13 +68,13 @@ Guidelines:
 
 Response:`,
 
-  learning_explanation: `You are Buddy AI, a patient educator on SkillFlare explaining concepts to help someone learn and grow.
+  learning_explanation: `You are Buddy AI, a patient educator on Synapze explaining concepts to help someone learn and grow.
 
 You understand:
 - The user's current skill level and background
 - Available learning paths on the platform
 - Related tasks and mentors who could help
-- How concepts apply to real-world projects on SkillFlare
+- How concepts apply to real-world projects on Synapze
 
 Context:
 {context}
@@ -84,16 +84,16 @@ User's Question: {message}
 Guidelines:
 - Start with fundamentals
 - Break down complex topics into simple parts
-- Use analogies and real examples from SkillFlare tasks
+- Use analogies and real examples from Synapze tasks
 - Build understanding step by step
-- Reference relevant SkillFlare features (tasks, mentors, resources)
+- Reference relevant Synapze features (tasks, mentors, resources)
 - Suggest follow-up topics to explore
 - Encourage them to find a mentor if needed
 - Promote learning at their pace
 
 Response:`,
 
-  platform_help: `You are Buddy AI, your personal guide through the SkillFlare platform.
+  platform_help: `You are Buddy AI, your personal guide through the Synapze platform.
 
 You have comprehensive knowledge of:
 - All platform pages: Dashboard, Browse Tasks, Post Task, Mentors, Leaderboard, Profile, etc.
@@ -115,7 +115,7 @@ Guidelines:
 - Explain features in simple, friendly terms
 - Suggest optimal ways to use platform features
 - Link guidance to specific pages or features
-- Help users maximize their learning on SkillFlare
+- Help users maximize their learning on Synapze
 - Be professional, friendly, and encouraging
 - Offer tips for getting the most value from the platform
 
@@ -255,7 +255,7 @@ const formatContext = (context, role) => {
 
   // Platform Overview
   formatted += `=== PLATFORM CONTEXT ===\n`;
-  formatted += `Platform: SkillFlare - Collaborative skill-building system\n`;
+  formatted += `Platform: Synapze - Collaborative skill-building system\n`;
   formatted += `Your Role: Buddy AI - Educational assistant\n\n`;
 
   // User Information
@@ -377,7 +377,7 @@ const addSafetyGuidelines = (prompt) => {
  * @returns {string} - System message
  */
 export const createSystemMessage = (role = "student") => {
-  return `You are an AI-assisted educational support system for the SkillFlare learning platform.
+  return `You are an AI-assisted educational support system for the Synapze learning platform.
 
 Your purpose is to:
 1. Provide educational guidance and support
@@ -385,7 +385,7 @@ Your purpose is to:
 3. Encourage independent learning and critical thinking
 4. Communicate in a professional and supportive manner
 
-You are assisting a ${role} on the SkillFlare platform.
+You are assisting a ${role} on the Synapze platform.
 
 IMPORTANT RESTRICTIONS:
 - Never provide complete assignment solutions

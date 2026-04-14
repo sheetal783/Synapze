@@ -38,7 +38,7 @@ const systemConfigSchema = new mongoose.Schema(
       systemPrompt: {
         type: String,
         default:
-          "You are a helpful, friendly, and professional AI assistant for the SkillFlare platform.",
+          "You are a helpful, friendly, and professional AI assistant for the Synapze platform.",
       },
       blockedKeywords: [String],
       safeMode: {

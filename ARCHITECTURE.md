@@ -1,6 +1,6 @@
-# SkillFlare System Architecture
+# Synapze System Architecture
 
-**Comprehensive technical design and implementation guide for MITS SkillFlare**
+**Comprehensive technical design and implementation guide for MITS Synapze**
 
 ---
 

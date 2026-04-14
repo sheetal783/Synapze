@@ -63,7 +63,7 @@ const Leaderboard = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
         <div>
           <div className="flex items-center space-x-3 mb-2">
-            <Trophy className="w-10 h-10 text-brand-orange" />
+            <Trophy className="w-10 h-10 text-brand-accent" />
             <h1 className="text-4xl font-bold tracking-tight">
               Skill <span className="text-gradient">Leaderboard</span>
             </h1>
@@ -84,7 +84,7 @@ const Leaderboard = () => {
               onClick={() => setFilter(item.id)}
               className={`flex items-center space-x-2 px-6 rounded-lg text-xs font-bold uppercase tracking-widest transition-all ${
                 filter === item.id
-                  ? 'bg-brand-orange text-white shadow-glow'
+                  ? 'bg-brand-accent text-white shadow-glow'
                   : 'text-brand-text-muted hover:text-brand-text-secondary'
               }`}
             >
@@ -228,7 +228,7 @@ const Leaderboard = () => {
                         className="flex items-center space-x-4 hover:translate-x-1 transition-transform"
                       >
                         <Avatar name={leaderUser.name} src={leaderUser.avatar} className="border border-white/5" />
-                        <span className="font-bold text-white group-hover:text-brand-orange transition-colors">
+                        <span className="font-bold text-white group-hover:text-brand-accent transition-colors">
                           {leaderUser.name}
                         </span>
                       </Link>
@@ -238,7 +238,7 @@ const Leaderboard = () => {
                         className={`text-[10px] font-bold uppercase border px-2 py-1 rounded-md ${
                           leaderUser.role === 'teacher'
                             ? 'bg-blue-500/10 text-blue-400 border-blue-500/20'
-                            : 'bg-brand-orange/10 text-brand-orange border-brand-orange/20'
+                            : 'bg-brand-accent/10 text-brand-accent border-brand-accent/20'
                         }`}
                       >
                         {leaderUser.role}
@@ -258,7 +258,7 @@ const Leaderboard = () => {
                       </div>
                     </td>
                     <td className="px-8 py-5 text-right">
-                      <span className="font-black text-brand-orange text-lg">
+                      <span className="font-black text-brand-accent text-lg">
                         {formatNumber(leaderUser.totalPoints)}
                       </span>
                     </td>

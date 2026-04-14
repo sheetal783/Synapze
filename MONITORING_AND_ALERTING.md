@@ -131,7 +131,7 @@ datadogRum.init({
   applicationId: 'YOUR_APP_ID',
   clientToken: 'YOUR_CLIENT_TOKEN',
   site: 'datadoghq.com',
-  service: 'skillflare-frontend',
+  service: 'Synapze-frontend',
   env: 'production',
   sessionSampleRate: 100,
   sessionReplaySampleRate: 20,
@@ -150,18 +150,18 @@ global:
   evaluation_interval: 15s
 
 scrape_configs:
-  - job_name: "skillflare-api"
+  - job_name: "Synapze-api"
     static_configs:
       - targets: ["localhost:5000"]
         labels:
           service: api
           env: production
 
-  - job_name: "skillflare-mongodb"
+  - job_name: "Synapze-mongodb"
     static_configs:
       - targets: ["localhost:27017"]
 
-  - job_name: "skillflare-redis"
+  - job_name: "Synapze-redis"
     static_configs:
       - targets: ["localhost:6379"]
 ```
@@ -281,7 +281,7 @@ logger.info("User login", {
 import { initializeBasicTracer } from "@opentelemetry/tracer-auto";
 
 initializeBasicTracer({
-  serviceName: "skillflare-backend",
+  serviceName: "Synapze-backend",
   samplingProbability: process.env.NODE_ENV === "production" ? 0.1 : 1.0,
 });
 
@@ -450,13 +450,13 @@ app.put("/api/users/:id/role", requireAuth, async (req, res) => {
 ### UptimeRobot Configuration
 
 ```
-Monitor Name: SkillFlare API
-URL: https://api.skillflare.com/api/health
+Monitor Name: Synapze API
+URL: https://api.Synapze.com/api/health
 Check Interval: 5 minutes
 Timeout: 30 seconds
 HTTP Method: GET
 Expected Status: 200
-Send Email Alert: ops@skillflare.com
+Send Email Alert: ops@Synapze.com
 Sms Alert (P1 only): +1234567890
 ```
 
@@ -480,7 +480,7 @@ const sendToSlack = async (message, severity = "warning") => {
     attachments: [
       {
         color,
-        title: "SkillFlare Alert",
+        title: "Synapze Alert",
         text: message,
         ts: Math.floor(Date.now() / 1000),
       },
@@ -562,7 +562,7 @@ ORDER BY date DESC;
 **Rollback Command:**
 
 ```bash
-kubectl rollout undo deployment/skillflare-api
+kubectl rollout undo deployment/Synapze-api
 ```
 
 ---
@@ -617,4 +617,4 @@ db.tasks.reIndex()
 
 ---
 
-**For questions, contact: devops@skillflare.com**
+**For questions, contact: devops@Synapze.com**

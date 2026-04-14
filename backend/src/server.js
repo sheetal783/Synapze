@@ -14,6 +14,7 @@ import { sanitizeMiddleware } from "./utils/sanitize.js";
 import requestTimeout from "./middleware/requestTimeout.js";
 import socketAuthAndRateLimit from "./middleware/socketRateLimit.js";
 import logger from "./config/logger.js";
+import { ensureDummyAdmin } from "./utils/adminBootstrap.js";
 
 // Route imports
 import authRoutes from "./routes/authRoutes.js";
@@ -333,6 +334,8 @@ const startServer = async () => {
   try {
     await connectDB();
     logger.info("Database connected successfully");
+
+    await ensureDummyAdmin();
 
     const PORT = process.env.PORT || 5000;
     httpServer.listen(PORT, () => {

@@ -73,13 +73,13 @@ const Profile = () => {
     <div className="wrapper py-8 animate-fade-in text-white">
       {/* Profile Header */}
       <div className="card bg-brand-surface/40 border-brand-border/50 p-8 md:p-12 mb-8 relative overflow-hidden group">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/5 blur-[100px] rounded-full group-hover:bg-brand-orange/10 transition-colors"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-brand-accent/5 blur-[100px] rounded-full group-hover:bg-brand-accent/10 transition-colors"></div>
         
         <div className="flex flex-col md:flex-row items-start md:items-center space-y-8 md:space-y-0 md:space-x-12 relative z-10">
           {/* Avatar */}
           <div className="relative">
-            <Avatar name={user.name} src={user.avatar} size="xl" className="ring-4 ring-brand-orange/20 shadow-glow" />
-            <div className="absolute -bottom-2 -right-2 bg-brand-orange text-white p-2 rounded-xl shadow-glow">
+            <Avatar name={user.name} src={user.avatar} size="xl" className="ring-4 ring-brand-accent/20 shadow-glow" />
+            <div className="absolute -bottom-2 -right-2 bg-brand-accent text-white p-2 rounded-xl shadow-glow">
                <Award size={20} />
             </div>
           </div>
@@ -96,19 +96,19 @@ const Profile = () => {
                     className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-md border ${
                       user.role === 'teacher' 
                         ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' 
-                        : 'bg-brand-orange/10 text-brand-orange border-brand-orange/20'
+                        : 'bg-brand-accent/10 text-brand-accent border-brand-accent/20'
                     }`}
                   >
                     {user.role === 'teacher' ? 'Instructor' : 'Field Agent'}
                   </span>
                   <div className="flex items-center space-x-2 text-brand-text-muted text-xs font-bold uppercase tracking-widest">
-                    <Calendar size={14} className="text-brand-orange" />
+                    <Calendar size={14} className="text-brand-accent" />
                     <span>Active Since {formatDate(user.createdAt)}</span>
                   </div>
                 </div>
               </div>
               {isOwnProfile && (
-                <Link to="/profile/edit" className="flex items-center space-x-2 px-6 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-brand-orange hover:border-brand-orange hover:text-white transition-all text-sm font-black uppercase tracking-widest group">
+                <Link to="/profile/edit" className="flex items-center space-x-2 px-6 py-3 bg-white/5 border border-white/10 rounded-xl hover:bg-brand-accent hover:border-brand-accent hover:text-white transition-all text-sm font-black uppercase tracking-widest group">
                   <Edit size={16} className="group-hover:scale-110 transition-transform" />
                   <span>Modify Credentials</span>
                 </Link>
@@ -138,9 +138,9 @@ const Profile = () => {
                 href={user.portfolio}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 text-brand-orange hover:text-orange-400 transition-colors font-bold text-sm"
+                className="inline-flex items-center space-x-2 text-brand-accent hover:text-orange-400 transition-colors font-bold text-sm"
               >
-                <div className="p-2 rounded-lg bg-brand-orange/10">
+                <div className="p-2 rounded-lg bg-brand-accent/10">
                    <ExternalLink size={14} />
                 </div>
                 <span>Sync External Portfolio</span>
@@ -153,7 +153,7 @@ const Profile = () => {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
         <div className="card bg-brand-card/50 border-brand-border/50 p-6 flex flex-col items-center group transition-all hover:-translate-y-1">
-          <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-4 group-hover:shadow-glow transition-all">
+          <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent mb-4 group-hover:shadow-glow transition-all">
              <Award size={24} />
           </div>
           <p className="text-4xl font-black text-white mb-1">
@@ -205,7 +205,7 @@ const Profile = () => {
       {user.ratings?.length > 0 && (
         <div className="card bg-brand-surface/20 border-brand-border/50 p-8 mb-12">
           <h2 className="text-xl font-black text-white mb-8 flex items-center space-x-3">
-             <div className="h-2 w-2 bg-brand-orange rounded-full"></div>
+             <div className="h-2 w-2 bg-brand-accent rounded-full"></div>
              <span className="uppercase tracking-[0.2em] text-sm">Operation Feedback</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -222,7 +222,7 @@ const Profile = () => {
                     </p>
                   </div>
                   {rating.review && (
-                    <p className="text-brand-text-secondary text-sm leading-relaxed italic border-l-2 border-brand-orange/30 pl-4 py-1">
+                    <p className="text-brand-text-secondary text-sm leading-relaxed italic border-l-2 border-brand-accent/30 pl-4 py-1">
                       "{rating.review}"
                     </p>
                   )}
@@ -237,7 +237,7 @@ const Profile = () => {
       <div className="animate-slide-up">
         <div className="flex items-center justify-between mb-8">
            <h2 className="text-xl font-black text-white flex items-center space-x-3">
-              <div className="h-2 w-2 bg-brand-orange rounded-full"></div>
+              <div className="h-2 w-2 bg-brand-accent rounded-full"></div>
               <span className="uppercase tracking-[0.2em] text-sm text-gradient">Field Operations ({tasks.length})</span>
            </h2>
         </div>

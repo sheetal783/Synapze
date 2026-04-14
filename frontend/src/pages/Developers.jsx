@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Github,
   Linkedin,
@@ -8,11 +8,10 @@ import {
   Globe,
   Layers,
   Code2,
-  Shield,
   Sparkles,
 } from "lucide-react";
 
-/* ── Scroll-reveal hook ── */
+/* -- Scroll-reveal hook -- */
 const useReveal = (threshold = 0.15) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -47,7 +46,7 @@ const RevealSection = ({ children, className = "", delay = 0 }) => {
   );
 };
 
-/* ── Data ── */
+/* -- Data -- */
 const teamMembers = [
   {
     id: 1,
@@ -90,19 +89,6 @@ const teamMembers = [
   },
   {
     id: 4,
-    name: "Anurag Mishra",
-    role: "Backend Developer",
-    category: ["Backend"],
-    image: "/Profile_Photos/Anurag%20Profile%20Photo.jpeg",
-    skills: ["Python", "Django", "PostgreSQL", "Docker"],
-    socials: {
-      github: "https://github.com/anuragmishra5159/anuragmishra5159",
-      linkedin: "https://www.linkedin.com/in/anuragmishra5159/",
-      portfolio: "#",
-    },
-  },
-  {
-    id: 5,
     name: "Vivek Chaurasiya",
     role: "Backend Developer",
     category: ["Backend"],
@@ -112,20 +98,6 @@ const teamMembers = [
     socials: {
       github: "https://github.com/VivekChaurasiya95",
       linkedin: "https://www.linkedin.com/in/vivek-chaurasiya-722037315/",
-      portfolio: "#",
-    },
-  },
-  {
-    id: 6,
-    name: "Ashish Garg",
-    role: "QA Engineer",
-    category: ["Testing"],
-    image: "/Profile_Photos/Ashish%20Profile%20Photo.jpeg",
-    imagePosition: "object-[center_top]",
-    skills: ["Selenium", "Manual Testing", "JIRA", "Cypress"],
-    socials: {
-      github: "https://github.com/Ashishgargnotgonnaloose2248",
-      linkedin: "https://www.linkedin.com/in/ashish-garg-2b896432a/",
       portfolio: "#",
     },
   },
@@ -143,13 +115,12 @@ const mentor = {
   },
 };
 
-const filters = ["All", "Frontend", "Backend", "Testing", "Mentor"];
+const filters = ["All", "Frontend", "Backend", "Mentor"];
 
 const filterIcons = {
   All: Sparkles,
   Frontend: Layers,
   Backend: Database,
-  Testing: Shield,
   Mentor: Code2,
 };
 
@@ -165,7 +136,7 @@ const categoryBadgeBg = {
   Testing: "bg-emerald-500/15 text-emerald-400",
 };
 
-/* ── Component ── */
+/* -- Component -- */
 const Developers = () => {
   const [activeFilter, setActiveFilter] = useState("All");
 
@@ -179,15 +150,15 @@ const Developers = () => {
 
   return (
     <div className="min-h-screen bg-brand-dark">
-      {/* ════════ HERO ════════ */}
+      {/* -------- HERO -------- */}
       <section className="relative pt-16 pb-24 overflow-hidden">
         {/* glow blobs */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-orange/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-accent/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="wrapper relative z-10 text-center">
           <RevealSection>
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-orange text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-brand-accent text-sm font-medium mb-6">
               <Code2 size={14} />
               <span>Our Team</span>
             </div>
@@ -207,7 +178,7 @@ const Developers = () => {
         </div>
       </section>
 
-      {/* ════════ FILTER TABS ════════ */}
+      {/* -------- FILTER TABS -------- */}
       <div className="wrapper">
         <RevealSection>
           <div className="flex flex-wrap justify-center gap-3 mb-14">
@@ -221,8 +192,8 @@ const Developers = () => {
                   className={`group inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300
                     ${
                       active
-                        ? "bg-brand-orange text-white shadow-glow scale-105"
-                        : "bg-brand-surface border border-brand-border text-brand-text-secondary hover:text-white hover:border-brand-orange/40 hover:scale-105"
+                        ? "bg-brand-accent text-white shadow-glow scale-105"
+                        : "bg-brand-surface border border-brand-border text-brand-text-secondary hover:text-white hover:border-brand-accent/40 hover:scale-105"
                     }`}
                 >
                   <Icon
@@ -230,7 +201,7 @@ const Developers = () => {
                     className={
                       active
                         ? "text-white"
-                        : "text-brand-text-muted group-hover:text-brand-orange transition-colors"
+                        : "text-brand-text-muted group-hover:text-brand-accent transition-colors"
                     }
                   />
                   {f}
@@ -240,7 +211,7 @@ const Developers = () => {
           </div>
         </RevealSection>
 
-        {/* ════════ TEAM GRID ════════ */}
+        {/* -------- TEAM GRID -------- */}
         {showMembers && (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7 mb-20">
             {filteredMembers.map((member, idx) => {
@@ -249,20 +220,20 @@ const Developers = () => {
                 categoryColor[primaryCat] || categoryColor.Frontend;
               return (
                 <RevealSection key={member.id} delay={idx * 80}>
-                  <div className="group relative bg-brand-card rounded-2xl border border-brand-border overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-brand-orange/30 hover:shadow-[0_20px_60px_-15px_rgba(249,115,22,0.15)]">
+                  <div className="group relative bg-brand-surface rounded-3xl border border-brand-border overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-brand-accent/30 hover:shadow-[0_20px_60px_-15px_rgba(182,160,255,0.15)] flex flex-col h-full">
                     {/* top gradient bar */}
                     <div
-                      className={`h-28 bg-gradient-to-br ${gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
+                      className={`h-32 bg-gradient-to-br ${gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-500`}
                     />
 
-                    <div className="px-6 pb-8 text-center relative">
+                    <div className="px-6 pb-8 text-center relative flex-grow flex flex-col">
                       {/* avatar */}
-                      <div className="relative -mt-14 mb-4 inline-block">
-                        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-orange/60 to-blue-500/60 blur opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
+                      <div className="relative -mt-16 mb-4 inline-block mx-auto">
+                        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-brand-accent/60 to-blue-500/60 blur-md opacity-0 group-hover:opacity-70 transition-opacity duration-500" />
                         <img
                           src={member.image}
                           alt={member.name}
-                          className={`relative w-28 h-28 rounded-full border-4 border-brand-card bg-brand-surface object-cover ${member.imagePosition || "object-center"}`}
+                          className={`relative w-32 h-32 rounded-full border-[5px] border-brand-surface bg-brand-surface object-cover ${member.imagePosition || "object-center"}`}
                         />
                         {/* role badges on avatar */}
                         <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 flex gap-1">
@@ -290,19 +261,19 @@ const Developers = () => {
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-brand-orange transition-colors duration-300">
+                      <h3 className="text-xl font-bold text-white mb-1 group-hover:text-brand-accent transition-colors duration-300">
                         {member.name}
                       </h3>
-                      <p className="text-sm text-brand-text-secondary mb-4 font-medium">
+                      <p className="text-sm text-brand-text-secondary mb-5 font-medium">
                         {member.role}
                       </p>
 
                       {/* skills */}
-                      <div className="flex flex-wrap justify-center gap-1.5 mb-5">
+                      <div className="flex flex-wrap justify-center gap-2 mb-6">
                         {member.skills.map((skill) => (
                           <span
                             key={skill}
-                            className={`px-2.5 py-1 text-xs rounded-full font-medium ${categoryBadgeBg[primaryCat]} transition-colors`}
+                            className={`px-3 py-1.5 text-[11px] uppercase tracking-wider rounded-lg font-bold ${categoryBadgeBg[primaryCat]} transition-colors border border-white/5 shadow-sm`}
                           >
                             {skill}
                           </span>
@@ -310,7 +281,7 @@ const Developers = () => {
                       </div>
 
                       {/* socials */}
-                      <div className="flex justify-center gap-3">
+                      <div className="flex justify-center gap-3 mt-auto">
                         <a
                           href={member.socials.github}
                           className="p-2 rounded-lg bg-brand-surface text-brand-text-muted hover:text-white hover:bg-white/10 transition-all duration-200"
@@ -325,7 +296,7 @@ const Developers = () => {
                         </a>
                         <a
                           href={member.socials.portfolio}
-                          className="p-2 rounded-lg bg-brand-surface text-brand-text-muted hover:text-brand-orange hover:bg-brand-orange/10 transition-all duration-200"
+                          className="p-2 rounded-lg bg-brand-surface text-brand-text-muted hover:text-brand-accent hover:bg-brand-accent/10 transition-all duration-200"
                         >
                           <Globe size={17} />
                         </a>
@@ -347,32 +318,32 @@ const Developers = () => {
           </div>
         )}
 
-        {/* ════════ FACULTY MENTOR ════════ */}
+        {/* -------- FACULTY MENTOR -------- */}
         {showMentor && (
           <RevealSection className="mb-20">
-            <div className="relative rounded-3xl p-px bg-gradient-to-br from-brand-orange/40 via-brand-border to-blue-500/40 overflow-hidden group">
+            <div className="relative rounded-3xl p-px bg-gradient-to-br from-brand-accent/40 via-brand-border to-blue-500/40 overflow-hidden group">
               {/* animated glow blobs */}
-              <div className="absolute top-0 right-0 -mr-24 -mt-24 w-72 h-72 bg-brand-orange/20 rounded-full blur-3xl opacity-40 animate-float pointer-events-none" />
+              <div className="absolute top-0 right-0 -mr-24 -mt-24 w-72 h-72 bg-brand-accent/20 rounded-full blur-3xl opacity-40 animate-float pointer-events-none" />
               <div
                 className="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl opacity-30 animate-float pointer-events-none"
                 style={{ animationDelay: "3s" }}
               />
 
-              <div className="relative bg-brand-card rounded-[23px] p-8 md:p-12 z-10">
-                <div className="flex flex-col md:flex-row items-center gap-10">
+              <div className="relative bg-brand-surface rounded-[31px] p-8 md:p-14 z-10">
+                <div className="flex flex-col md:flex-row items-center gap-12">
                   {/* mentor photo */}
                   <div className="relative flex-shrink-0">
-                    <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-orange to-blue-500 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute -inset-1.5 bg-gradient-to-r from-brand-accent to-blue-500 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity duration-700" />
                     <img
                       src={mentor.image}
                       alt={mentor.name}
-                      className="relative w-44 h-44 rounded-full border-4 border-brand-card object-cover shadow-2xl"
+                      className="relative w-48 h-48 rounded-full border-[6px] border-brand-surface object-cover shadow-2xl"
                     />
                   </div>
 
                   {/* mentor info */}
                   <div className="text-center md:text-left flex-1">
-                    <span className="inline-block uppercase tracking-widest text-xs text-brand-orange font-semibold mb-3 px-3 py-1 rounded-full bg-brand-orange/10">
+                    <span className="inline-block uppercase tracking-widest text-xs text-brand-accent font-semibold mb-3 px-3 py-1 rounded-full bg-brand-accent/10">
                       Faculty Mentor
                     </span>
                     <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-2">

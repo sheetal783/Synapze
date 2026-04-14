@@ -54,7 +54,7 @@ export const sendEmail = async (options) => {
       from:
         process.env.EMAIL_FROM ||
         process.env.EMAIL_USER ||
-        "noreply@skillflare.com",
+        "noreply@Synapze.com",
       to: options.to,
       subject: options.subject,
       html: options.html,

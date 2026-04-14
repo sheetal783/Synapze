@@ -69,7 +69,7 @@ const Mentors = () => {
           </div>
           <input
             type="text"
-            className="input pl-11 w-full md:w-1/2 max-w-md bg-brand-card focus:ring-brand-orange"
+            className="input pl-11 w-full md:w-1/2 max-w-md bg-brand-card focus:ring-brand-accent"
             placeholder="Search by name or skill..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -100,7 +100,7 @@ const Mentors = () => {
             {(filteredMentors ?? []).map((mentor, index) => (
               <div
                 key={mentor._id}
-                className="card hover:border-brand-orange/50 transition-all duration-300 group animate-slide-up"
+                className="card hover:border-brand-accent/50 transition-all duration-300 group animate-slide-up"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div className="flex items-center mb-6">
@@ -109,14 +109,14 @@ const Mentors = () => {
                       src={mentor.userId.avatar}
                       alt={mentor.userId.name}
                       size="lg"
-                      className="ring-2 ring-brand-border group-hover:ring-brand-orange/50 transition-all"
+                      className="ring-2 ring-brand-border group-hover:ring-brand-accent/50 transition-all"
                     />
                     {mentor.isActive && (
-                      <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-mits-green ring-2 ring-brand-card"></span>
+                      <span className="absolute bottom-0 right-0 block h-3 w-3 rounded-full bg-green-500 ring-2 ring-brand-card"></span>
                     )}
                   </div>
                   <div className="ml-4">
-                    <h2 className="text-xl font-bold text-white group-hover:text-brand-orange transition-colors">
+                    <h2 className="text-xl font-bold text-white group-hover:text-brand-accent transition-colors">
                       {mentor.userId.name}
                     </h2>
                     <div className="flex items-center text-sm text-brand-text-secondary mt-1">
@@ -148,7 +148,7 @@ const Mentors = () => {
                           className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-brand-surface text-brand-text-primary border border-brand-border/50"
                         >
                           {skill.name}
-                          <CheckBadgeIcon className="h-3 w-3 ml-1.5 text-mits-green" />
+                          <CheckBadgeIcon className="h-3 w-3 ml-1.5 text-green-500" />
                         </span>
                       ))}
                     {mentor.skills.filter((s) => s.isVerified).length === 0 && (
@@ -167,7 +167,7 @@ const Mentors = () => {
 
                 <Link
                   to={`/mentors/${mentor.userId._id}`}
-                  className="w-full btn bg-brand-surface hover:bg-brand-surface/80 text-white border border-brand-border hover:border-brand-orange/30 group-hover:bg-brand-orange group-hover:border-brand-orange transition-all duration-300"
+                  className="w-full btn bg-brand-surface hover:bg-brand-surface/80 text-white border border-brand-border hover:border-brand-accent/30 group-hover:bg-brand-accent group-hover:border-brand-accent transition-all duration-300"
                 >
                   View Profile
                 </Link>

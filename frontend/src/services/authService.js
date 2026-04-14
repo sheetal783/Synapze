@@ -13,6 +13,16 @@ export const authService = {
     return response.data;
   },
 
+  // Sign in/up using Firebase token, backend verifies and issues JWT session
+  firebaseAuth: async (idToken, profile = {}) => {
+    const response = await api.post("/auth/firebase", {
+      idToken,
+      name: profile.name,
+      role: profile.role,
+    });
+    return response.data;
+  },
+
   // Get current user
   getMe: async () => {
     const response = await api.get("/auth/me");

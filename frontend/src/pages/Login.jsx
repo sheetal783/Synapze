@@ -70,17 +70,17 @@ const Login = () => {
   return (
     <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
       <div className="max-w-md w-full">
-        <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+        <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-orange/20">
-              <LogIn className="w-8 h-8 text-brand-orange" />
+            <div className="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-accent/20">
+              <LogIn className="w-8 h-8 text-brand-accent" />
             </div>
             <h2 className="text-3xl font-bold text-white tracking-tight">
               Welcome Back
             </h2>
             <p className="text-brand-text-secondary mt-2">
-              Sign in to your SkillFlare account
+              Sign in to your Synapze account
             </p>
           </div>
 
@@ -95,7 +95,7 @@ const Login = () => {
                 Email Address
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <Mail className="h-5 w-5" />
                 </div>
                 <input
@@ -125,7 +125,7 @@ const Login = () => {
                 Password
               </label>
               <div className="relative group">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                   <Lock className="h-5 w-5" />
                 </div>
                 <input
@@ -141,7 +141,7 @@ const Login = () => {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-orange transition-colors"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-accent transition-colors"
                 >
                   {showPassword ? (
                     <EyeOff className="h-5 w-5" />
@@ -161,7 +161,7 @@ const Login = () => {
             <div className="text-right">
               <Link
                 to="/forgot-password"
-                className="text-sm text-brand-orange hover:text-brand-orange-hover transition-colors font-medium"
+                className="text-sm text-brand-accent hover:text-brand-accent-hover transition-colors font-medium"
               >
                 Forgot password?
               </Link>
@@ -183,7 +183,7 @@ const Login = () => {
               Don't have an account?{" "}
               <Link
                 to="/register"
-                className="text-brand-orange font-bold hover:underline"
+                className="text-brand-accent font-bold hover:underline"
               >
                 Sign up
               </Link>

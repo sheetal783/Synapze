@@ -88,7 +88,7 @@ const BrowseTasks = () => {
         <div className="flex flex-col sm:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative group">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-brand-text-muted group-focus-within:text-brand-orange transition-colors w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-brand-text-muted group-focus-within:text-brand-accent transition-colors w-5 h-5" />
             <input
               type="text"
               placeholder="Search by title, description or skills..."
@@ -102,13 +102,13 @@ const BrowseTasks = () => {
           <button
             onClick={() => setShowFilters(!showFilters)}
             className={`btn-secondary h-12 px-6 flex items-center space-x-3 ${
-              showFilters ? 'border-brand-orange/50 bg-brand-orange/5' : ''
+              showFilters ? 'border-brand-accent/50 bg-brand-accent/5' : ''
             }`}
           >
-            <Filter size={18} className={hasActiveFilters ? 'text-brand-orange' : ''} />
+            <Filter size={18} className={hasActiveFilters ? 'text-brand-accent' : ''} />
             <span className="font-semibold text-sm">Filters</span>
             {hasActiveFilters && (
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-orange text-[10px] font-bold text-white shadow-glow">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-accent text-[10px] font-bold text-white shadow-glow">
                 {Object.values(filters).filter((v) => v !== '').length}
               </span>
             )}
@@ -117,7 +117,7 @@ const BrowseTasks = () => {
 
         {/* Filter options */}
         {showFilters && (
-          <div className="card border-brand-orange/10 bg-brand-card/30 p-6 animate-slide-up">
+          <div className="card border-brand-accent/10 bg-brand-card/30 p-6 animate-slide-up">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {/* Status filter */}
               <div className="space-y-2">
@@ -171,7 +171,7 @@ const BrowseTasks = () => {
               <div className="mt-6 flex justify-end pt-4 border-t border-brand-border/50">
                 <button
                   onClick={clearFilters}
-                  className="text-xs font-bold uppercase tracking-widest text-brand-text-muted hover:text-brand-orange flex items-center space-x-2 transition-colors"
+                  className="text-xs font-bold uppercase tracking-widest text-brand-text-muted hover:text-brand-accent flex items-center space-x-2 transition-colors"
                 >
                   <X size={14} />
                   <span>Clear all filters</span>
@@ -210,7 +210,7 @@ const BrowseTasks = () => {
                 Previous
               </button>
               <div className="flex items-center space-x-1 font-medium">
-                <span className="text-brand-orange">{pagination.page}</span>
+                <span className="text-brand-accent">{pagination.page}</span>
                 <span className="text-brand-text-muted">/</span>
                 <span className="text-brand-text-primary">{pagination.totalPages}</span>
               </div>

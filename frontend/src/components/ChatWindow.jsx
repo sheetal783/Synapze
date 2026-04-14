@@ -143,7 +143,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <Loader2 className="w-8 h-8 text-brand-orange animate-spin" />
+        <Loader2 className="w-8 h-8 text-brand-accent animate-spin" />
       </div>
     );
   }
@@ -168,7 +168,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
             .map((participant) => (
               <div key={participant._id} className="flex items-center space-x-3">
                 <div className="relative">
-                  <Avatar name={participant.name} src={participant.avatar} size="small" className="ring-2 ring-brand-orange/20" />
+                  <Avatar name={participant.name} src={participant.avatar} size="small" className="ring-2 ring-brand-accent/20" />
                   <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-brand-dark"></div>
                 </div>
                 <div>
@@ -176,7 +176,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
                     {participant.name}
                   </p>
                   <span className={`text-[9px] font-black uppercase tracking-widest ${
-                    participant.role === 'teacher' ? 'text-blue-400' : 'text-brand-orange'
+                    participant.role === 'teacher' ? 'text-blue-400' : 'text-brand-accent'
                   }`}>
                     {participant.role === 'teacher' ? 'Instructor' : 'Field Agent'}
                   </span>
@@ -219,7 +219,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
                 <div
                   className={`relative px-4 py-3 shadow-xl ${
                     isOwnMessage
-                      ? 'bg-brand-orange text-white rounded-2xl rounded-br-none'
+                      ? 'bg-brand-accent text-white rounded-2xl rounded-br-none'
                       : 'bg-brand-surface border border-brand-border text-white rounded-2xl rounded-bl-none'
                   }`}
                 >
@@ -239,9 +239,9 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
         {typingUser && (
           <div className="flex items-center space-x-3 text-brand-text-muted animate-pulse">
             <div className="flex space-x-1">
-               <div className="w-1 h-1 bg-brand-orange rounded-full animate-bounce"></div>
-               <div className="w-1 h-1 bg-brand-orange rounded-full animate-bounce delay-100"></div>
-               <div className="w-1 h-1 bg-brand-orange rounded-full animate-bounce delay-200"></div>
+               <div className="w-1 h-1 bg-brand-accent rounded-full animate-bounce"></div>
+               <div className="w-1 h-1 bg-brand-accent rounded-full animate-bounce delay-100"></div>
+               <div className="w-1 h-1 bg-brand-accent rounded-full animate-bounce delay-200"></div>
             </div>
             <span className="text-[10px] font-black uppercase tracking-widest">{typingUser.name} is drafting...</span>
           </div>
@@ -265,7 +265,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
                 handleTyping();
               }}
               placeholder="Send an encrypted message..."
-              className="flex-1 bg-brand-dark border border-brand-border p-3 rounded-xl text-sm text-white focus:border-brand-orange outline-none transition-all placeholder:text-brand-text-muted font-medium"
+              className="flex-1 bg-brand-dark border border-brand-border p-3 rounded-xl text-sm text-white focus:border-brand-accent outline-none transition-all placeholder:text-brand-text-muted font-medium"
               disabled={sending}
             />
             <button
@@ -274,7 +274,7 @@ const ChatWindow = ({ taskId, chatRoomId }) => {
               className={`p-3 rounded-xl transition-all flex items-center justify-center ${
                 !newMessage.trim() || sending 
                   ? 'bg-white/5 text-brand-text-muted' 
-                  : 'bg-brand-orange text-white shadow-glow'
+                  : 'bg-brand-accent text-white shadow-glow'
               }`}
             >
               {sending ? (

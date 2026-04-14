@@ -9,7 +9,7 @@
   }
   
   body {
-    @apply bg-brand-dark text-brand-text-primary min-h-screen selection:bg-brand-orange/30 selection:text-white;
+    @apply bg-brand-dark text-[#f9f5f8] min-h-screen selection:bg-[#291754]/30 selection:text-white;
     font-family: 'Inter', system-ui, sans-serif;
   }
 
@@ -36,7 +36,7 @@
   }
   
   .btn-primary {
-    @apply btn bg-brand-orange text-white hover:bg-brand-orange-hover hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] focus:ring-brand-orange;
+    @apply btn bg-[#291754] text-white hover:bg-brand-accent/80 hover:shadow-[0_0_20px_rgba(182,160,255,0.4)] focus:ring-[rgba(182,160,255,0.4)];
   }
   
   .btn-secondary {
@@ -50,11 +50,11 @@
 
   /* Cards */
   .card {
-    @apply bg-brand-card/50 backdrop-blur-sm border border-brand-border rounded-2xl p-6 transition-all duration-300;
+    @apply bg-brand-card/20 backdrop-blur-[16px] rounded-[32px] p-6 transition-all duration-300 border border-white/5;
   }
   
   .card-hover {
-    @apply hover:border-brand-orange/30 hover:bg-brand-card hover:translate-y-[-4px] hover:shadow-card-hover;
+    @apply hover:border-brand-accent/30 hover:bg-brand-card hover:translate-y-[-4px] hover:shadow-card-hover;
   }
 
   /* Typography */
@@ -68,7 +68,7 @@
 
   /* Inputs */
   .input {
-    @apply w-full px-4 py-3 rounded-xl bg-brand-surface border border-brand-border text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-orange/50 focus:ring-1 focus:ring-brand-orange/50 transition-all duration-200;
+    @apply w-full px-4 py-3 rounded-xl bg-brand-surface border border-brand-border text-white placeholder-brand-text-muted focus:outline-none focus:border-brand-accent/50 focus:ring-1 focus:ring-[#291754]/50 transition-all duration-200;
   }
 
   /* Badges */
@@ -79,7 +79,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-orange to-red-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-accent to-blue-400;
   }
   
   .text-gradient-blue {
@@ -90,3 +90,5 @@
     @apply bg-brand-dark/80 backdrop-blur-md border-b border-white/5;
   }
 }
+
+

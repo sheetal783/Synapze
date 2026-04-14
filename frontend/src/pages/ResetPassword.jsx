@@ -108,10 +108,10 @@ const ResetPassword = () => {
     return (
       <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
         <div className="max-w-md w-full">
-          <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+          <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
             <div className="flex justify-center">
               <div className="animate-spin">
-                <div className="w-8 h-8 border-4 border-brand-orange/30 border-t-brand-orange rounded-full"></div>
+                <div className="w-8 h-8 border-4 border-brand-accent/30 border-t-brand-accent rounded-full"></div>
               </div>
             </div>
           </div>
@@ -124,7 +124,7 @@ const ResetPassword = () => {
     return (
       <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
         <div className="max-w-md w-full">
-          <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+          <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-500/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-red-500/20">
                 <Lock className="w-8 h-8 text-red-500" />
@@ -137,7 +137,7 @@ const ResetPassword = () => {
               </p>
               <Link
                 to="/forgot-password"
-                className="inline-block px-4 py-2 bg-brand-orange hover:bg-brand-orange-hover text-white font-medium rounded-lg transition-colors"
+                className="inline-block px-4 py-2 bg-brand-accent hover:bg-brand-accent-hover text-white font-medium rounded-lg transition-colors"
               >
                 Request New Link
               </Link>
@@ -151,11 +151,11 @@ const ResetPassword = () => {
   return (
     <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-brand-dark">
       <div className="max-w-md w-full">
-        <div className="card shadow-glow border-brand-orange/10 backdrop-blur-md">
+        <div className="card shadow-glow border-brand-accent/10 backdrop-blur-md">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-16 h-16 bg-brand-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-orange/20">
-              <Lock className="w-8 h-8 text-brand-orange" />
+            <div className="w-16 h-16 bg-brand-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-brand-accent/20">
+              <Lock className="w-8 h-8 text-brand-accent" />
             </div>
             <h2 className="text-3xl font-bold text-white tracking-tight">
               Set New Password
@@ -184,7 +184,7 @@ const ResetPassword = () => {
                 </p>
                 <Link
                   to="/login"
-                  className="text-brand-orange hover:text-brand-orange-hover transition-colors"
+                  className="text-brand-accent hover:text-brand-accent-hover transition-colors"
                 >
                   Click here if not redirected automatically
                 </Link>
@@ -202,7 +202,7 @@ const ResetPassword = () => {
                   New Password
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                     <Lock className="h-5 w-5" />
                   </div>
                   <input
@@ -217,7 +217,7 @@ const ResetPassword = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-orange transition-colors"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-accent transition-colors"
                   >
                     {showPassword ? (
                       <EyeOff className="h-5 w-5" />
@@ -243,7 +243,7 @@ const ResetPassword = () => {
                   Confirm Password
                 </label>
                 <div className="relative group">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-orange text-brand-text-muted">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none transition-colors group-focus-within:text-brand-accent text-brand-text-muted">
                     <Lock className="h-5 w-5" />
                   </div>
                   <input
@@ -258,7 +258,7 @@ const ResetPassword = () => {
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-orange transition-colors"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-brand-text-muted hover:text-brand-accent transition-colors"
                   >
                     {showConfirmPassword ? (
                       <EyeOff className="h-5 w-5" />
@@ -273,7 +273,7 @@ const ResetPassword = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full btn bg-brand-orange hover:bg-brand-orange-hover text-white font-semibold py-2.5 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full btn bg-brand-accent hover:bg-brand-accent-hover text-white font-semibold py-2.5 rounded-lg transition-all duration-200 transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {loading ? <ButtonLoading /> : "Reset Password"}
               </button>
@@ -282,7 +282,7 @@ const ResetPassword = () => {
               <div className="text-center">
                 <Link
                   to="/login"
-                  className="text-sm text-brand-text-secondary hover:text-brand-orange transition-colors inline-flex items-center gap-2"
+                  className="text-sm text-brand-text-secondary hover:text-brand-accent transition-colors inline-flex items-center gap-2"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back to Login

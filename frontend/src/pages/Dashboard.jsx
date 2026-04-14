@@ -98,8 +98,8 @@ const Dashboard = () => {
       title: "Credit Points",
       value: formatNumber(stats?.creditPoints || 0),
       icon: Award,
-      color: "text-brand-orange",
-      bgColor: "bg-brand-orange/10",
+      color: "text-brand-accent",
+      bgColor: "bg-brand-accent/10",
     },
     {
       title: "Tasks Completed",
@@ -127,8 +127,8 @@ const Dashboard = () => {
       {/* Header */}
       <div className="mb-10">
         <div className="flex items-center space-x-4 mb-3">
-          <div className="p-2 bg-brand-orange/10 rounded-xl border border-brand-orange/20">
-            <LayoutDashboard className="w-8 h-8 text-brand-orange" />
+          <div className="p-2 bg-brand-accent/10 rounded-xl border border-brand-accent/20">
+            <LayoutDashboard className="w-8 h-8 text-brand-accent" />
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-white">
             My <span className="text-gradient">Dashboard</span>
@@ -145,7 +145,7 @@ const Dashboard = () => {
         {statCards.map((stat, index) => (
           <div
             key={index}
-            className="card p-6 border-brand-border/50 hover:border-brand-orange/20 group"
+            className="card p-6 border-brand-border/50 hover:border-brand-accent/20 group"
           >
             <div className="flex items-center justify-between mb-4">
               <div
@@ -166,10 +166,10 @@ const Dashboard = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         <Link
           to="/post-task"
-          className="card p-6 flex items-center justify-between group hover:border-brand-orange/30 bg-gradient-to-br from-brand-card to-brand-surface"
+          className="card p-6 flex items-center justify-between group hover:border-brand-accent/30 bg-gradient-to-br from-brand-card to-brand-surface"
         >
           <div className="flex items-center space-x-5">
-            <div className="p-4 bg-brand-orange/10 rounded-2xl group-hover:bg-brand-orange group-hover:text-white text-brand-orange transition-colors">
+            <div className="p-4 bg-brand-accent/10 rounded-2xl group-hover:bg-brand-accent group-hover:text-white text-brand-accent transition-colors">
               <PlusCircle className="w-8 h-8" />
             </div>
             <div>
@@ -181,7 +181,7 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
-          <ArrowRight className="w-6 h-6 text-brand-text-muted group-hover:text-brand-orange" />
+          <ArrowRight className="w-6 h-6 text-brand-text-muted group-hover:text-brand-accent" />
         </Link>
 
         <Link
@@ -215,7 +215,7 @@ const Dashboard = () => {
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-8 py-5 font-bold text-xs uppercase tracking-widest relative ${
                   activeTab === tab.id
-                    ? "text-brand-orange"
+                    ? "text-brand-accent"
                     : "text-brand-text-muted"
                 }`}
               >
@@ -224,7 +224,7 @@ const Dashboard = () => {
                   {tab.count}
                 </span>
                 {activeTab === tab.id && (
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-orange shadow-glow" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-brand-accent shadow-glow" />
                 )}
               </button>
             ))}

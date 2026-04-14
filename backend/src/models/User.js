@@ -21,9 +21,22 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "Please add a password"],
+      required: function () {
+        return this.authProvider !== "firebase";
+      },
       minlength: [8, "Password must be at least 8 characters"],
       select: false,
+    },
+    authProvider: {
+      type: String,
+      enum: ["local", "firebase"],
+      default: "local",
+    },
+    firebaseUid: {
+      type: String,
+      unique: true,
+      sparse: true,
+      default: null,
     },
     role: {
       type: String,
@@ -134,6 +147,9 @@ const userSchema = new mongoose.Schema(
 // Encrypt password using bcrypt
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
+    return next();
+  }
+  if (!this.password) {
     return next();
   }
   const salt = await bcrypt.genSalt(12);

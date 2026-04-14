@@ -139,7 +139,7 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
               value={formData.title}
               onChange={handleInputChange}
               placeholder="Enter task title"
-              className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-orange"
+              className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent"
             />
           </div>
 
@@ -154,7 +154,7 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
               onChange={handleInputChange}
               placeholder="Enter detailed task description"
               rows={6}
-              className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-orange resize-none"
+              className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-brand-accent resize-none"
             />
           </div>
 
@@ -171,8 +171,8 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
                   onClick={() => toggleSkill(skill)}
                   className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     selectedSkills.includes(skill)
-                      ? "bg-brand-orange text-white"
-                      : "bg-brand-surface border border-brand-border text-gray-300 hover:border-brand-orange"
+                      ? "bg-brand-accent text-white"
+                      : "bg-brand-surface border border-brand-border text-gray-300 hover:border-brand-accent"
                   }`}
                 >
                   {skill}
@@ -194,7 +194,7 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
                 onChange={handleInputChange}
                 min="0"
                 max="100"
-                className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white focus:outline-none focus:border-brand-orange"
+                className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white focus:outline-none focus:border-brand-accent"
               />
             </div>
 
@@ -208,7 +208,7 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
                 name="deadline"
                 value={formData.deadline}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white focus:outline-none focus:border-brand-orange"
+                className="w-full px-4 py-2 bg-brand-surface border border-brand-border rounded-lg text-white focus:outline-none focus:border-brand-accent"
               />
             </div>
           </div>
@@ -225,7 +225,7 @@ const EditTaskModal = ({ task, isOpen, onClose, onSuccess }) => {
             <button
               type="submit"
               disabled={loading}
-              className="px-6 py-2 bg-brand-orange hover:bg-brand-orange/80 disabled:opacity-50 text-white font-medium rounded-lg transition-all"
+              className="px-6 py-2 bg-brand-accent hover:bg-brand-accent/80 disabled:opacity-50 text-white font-medium rounded-lg transition-all"
             >
               {loading ? "Updating..." : "Update Task"}
             </button>

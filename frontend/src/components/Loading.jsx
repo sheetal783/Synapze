@@ -9,7 +9,7 @@ const Loading = ({ size = 'default', text = 'Loading...' }) => {
 
   return (
     <div className="flex flex-col items-center justify-center py-8">
-      <Loader2 className={`${sizeClasses[size]} text-mits-blue animate-spin`} />
+      <Loader2 className={`${sizeClasses[size]} text-blue-500 animate-spin`} />
       {text && (
         <p className="mt-4 text-text-secondary dark:text-text-dark-secondary">
           {text}

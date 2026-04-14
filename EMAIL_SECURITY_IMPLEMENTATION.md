@@ -8,7 +8,7 @@
 
 ## 📋 Executive Summary
 
-The SkillFlare platform now enforces **strict email-based authentication security** with the following guarantees:
+The Synapze platform now enforces **strict email-based authentication security** with the following guarantees:
 
 - ✅ **Domain-Restricted Registration:** Only approved institutional emails (@mitsgwl.ac.in for students, @mitsgwalior.in for faculty)
 - ✅ **Registered Email Verification:** All authentication operations tied to the email used during account creation
@@ -217,7 +217,7 @@ POST /api/auth/login
 
 **Reset Email Template:**
 ```
-Subject: Password Reset Request - SkillFlare
+Subject: Password Reset Request - Synapze
 
 Content:
 - User's registered email shown in message
@@ -324,7 +324,7 @@ POST /api/auth/reset-password/eyJhbGciOiJIUzI1NiIs...
 
 **Confirmation Email:**
 ```
-Subject: Password Reset Successful - SkillFlare
+Subject: Password Reset Successful - Synapze
 
 Content:
 - Confirms registered email has been reset
@@ -414,7 +414,7 @@ EMAIL_USER=your-email@domain.com
 EMAIL_PASSWORD=your-app-password
 
 # Client URL (for reset link)
-CLIENT_URL=https://skillflare.example.com
+CLIENT_URL=https://Synapze.example.com
 
 # Domain Restriction (optional, true by default in production)
 RESTRICT_EMAIL_DOMAIN=true

@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import dns from "node:dns";
 import logger from "./logger.js";
 
 // Connection pool configuration for better resource management
@@ -7,8 +8,31 @@ const RETRY_DELAY = 5000; // 5 seconds
 const CONNECTION_POOL_SIZE = 10; // Max connections in pool
 const CONNECTION_TIMEOUT = 30000; // 30 seconds to establish connection
 
+const configureDnsForSrv = () => {
+  const mongoUri = process.env.MONGODB_URI || "";
+  if (!mongoUri.startsWith("mongodb+srv://")) return;
+
+  const dnsServers = (process.env.DNS_SERVERS || "8.8.8.8,1.1.1.1")
+    .split(",")
+    .map((server) => server.trim())
+    .filter(Boolean);
+
+  try {
+    dns.setServers(dnsServers);
+    logger.info("Configured DNS servers for MongoDB SRV lookups", {
+      dnsServers,
+    });
+  } catch (error) {
+    logger.warn("Failed to configure DNS servers for MongoDB", {
+      error: error.message,
+    });
+  }
+};
+
 const connectDB = async (retries = MAX_RETRIES) => {
   try {
+    configureDnsForSrv();
+
     const conn = await mongoose.connect(process.env.MONGODB_URI, {
       // Connection pool settings
       maxPoolSize: CONNECTION_POOL_SIZE,

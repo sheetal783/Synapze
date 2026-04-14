@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: skillflare-backend
+    name: Synapze-backend
     runtime: node
     buildCommand: yarn install && cd backend && yarn install
     startCommand: cd backend && yarn start
@@ -10,4 +10,4 @@ services:
       - key: PORT
         value: 5000
       - key: CLIENT_URL
-        value: https://skillflare-delta.vercel.app
+        value: https://Synapze-delta.vercel.app

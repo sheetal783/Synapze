@@ -178,7 +178,7 @@ const TaskDetails = () => {
       {/* Back button */}
       <Link
         to="/browse"
-        className="inline-flex items-center space-x-2 text-brand-text-secondary hover:text-brand-orange mb-8 transition-colors group"
+        className="inline-flex items-center space-x-2 text-brand-text-secondary hover:text-brand-accent mb-8 transition-colors group"
       >
         <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
         <span className="text-sm font-bold uppercase tracking-widest">Back to Browse</span>
@@ -189,7 +189,7 @@ const TaskDetails = () => {
         <div className="lg:col-span-2 space-y-6">
           {/* Task header */}
           <div className="card bg-brand-surface/40 border-brand-border/50 p-8 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-orange/5 blur-[60px] rounded-full group-hover:bg-brand-orange/10 transition-colors"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent/5 blur-[60px] rounded-full group-hover:bg-brand-accent/10 transition-colors"></div>
             
             <div className="flex flex-wrap items-start justify-between gap-4 mb-6 relative z-10">
               <div className="flex items-center space-x-3">
@@ -197,7 +197,7 @@ const TaskDetails = () => {
                   className={`text-[10px] font-bold uppercase border px-2 py-1 rounded-md ${
                     task.posterRole === 'teacher'
                       ? 'bg-blue-500/10 text-blue-400 border-blue-500/20'
-                      : 'bg-brand-orange/10 text-brand-orange border-brand-orange/20'
+                      : 'bg-brand-accent/10 text-brand-accent border-brand-accent/20'
                   }`}
                 >
                   {task.posterRole === 'teacher' ? 'Teacher Posted' : 'Student Posted'}
@@ -207,7 +207,7 @@ const TaskDetails = () => {
                 </span>
               </div>
               {task.creditPoints > 0 && (
-                <div className="flex items-center space-x-2 text-brand-orange">
+                <div className="flex items-center space-x-2 text-brand-accent">
                   <Award size={22} className="shadow-glow" />
                   <span className="font-black text-2xl tracking-tighter">{task.creditPoints} <span className="text-xs uppercase tracking-normal">Credits</span></span>
                 </div>
@@ -220,7 +220,7 @@ const TaskDetails = () => {
 
             <div className="flex flex-wrap gap-2 mb-8">
               {task.skills?.map((skill, index) => (
-                <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-brand-text-secondary hover:border-brand-orange/50 transition-colors">
+                <span key={index} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-brand-text-secondary hover:border-brand-accent/50 transition-colors">
                   {skill}
                 </span>
               ))}
@@ -293,7 +293,7 @@ const TaskDetails = () => {
           {showChat && (
             <div className="card bg-brand-surface/40 border-brand-border/50 p-8">
               <h2 className="text-xl font-bold text-white mb-6 flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange">
+                <div className="w-10 h-10 rounded-xl bg-brand-accent/10 flex items-center justify-center text-brand-accent">
                    <MessageSquare size={20} />
                 </div>
                 <span>Collaboration <span className="text-gradient">Hub</span></span>
@@ -316,16 +316,16 @@ const TaskDetails = () => {
               to={`/user/${task.postedBy?._id}`}
               className="flex items-center space-x-4 group"
             >
-              <Avatar name={task.postedBy?.name} size="large" src={task.postedBy?.avatar} className="ring-2 ring-white/5 group-hover:ring-brand-orange/50 transition-all" />
+              <Avatar name={task.postedBy?.name} size="large" src={task.postedBy?.avatar} className="ring-2 ring-white/5 group-hover:ring-brand-accent/50 transition-all" />
               <div>
-                <p className="font-bold text-white group-hover:text-brand-orange transition-colors">
+                <p className="font-bold text-white group-hover:text-brand-accent transition-colors">
                   {task.postedBy?.name}
                 </p>
                 <span
                   className={`text-[10px] font-bold uppercase tracking-widest ${
                     task.postedBy?.role === 'teacher'
                       ? 'text-blue-400'
-                      : 'text-brand-orange'
+                      : 'text-brand-accent'
                   }`}
                 >
                   {task.postedBy?.role === 'teacher' ? 'Instructor' : 'Peer Student'}
@@ -344,12 +344,12 @@ const TaskDetails = () => {
                 to={`/user/${task.takenBy?._id}`}
                 className="flex items-center space-x-4 group"
               >
-                <Avatar name={task.takenBy?.name} size="large" src={task.takenBy?.avatar} className="ring-2 ring-white/5 group-hover:ring-brand-orange/50 transition-all" />
+                <Avatar name={task.takenBy?.name} size="large" src={task.takenBy?.avatar} className="ring-2 ring-white/5 group-hover:ring-brand-accent/50 transition-all" />
                 <div>
-                  <p className="font-bold text-white group-hover:text-brand-orange transition-colors">
+                  <p className="font-bold text-white group-hover:text-brand-accent transition-colors">
                     {task.takenBy?.name}
                   </p>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-brand-orange">Student</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-brand-accent">Student</span>
                 </div>
               </Link>
             </div>
@@ -404,7 +404,7 @@ const TaskDetails = () => {
           </div>
 
           {/* Actions */}
-          <div className="card bg-brand-card p-6 space-y-4 border border-brand-orange/20 shadow-[0_0_20px_rgba(249,115,22,0.05)]">
+          <div className="card bg-brand-card p-6 space-y-4 border border-brand-accent/20 shadow-[0_0_20px_rgba(249,115,22,0.05)]">
             {canTakeTask && (
               <button
                 onClick={handleTakeTask}
@@ -466,7 +466,7 @@ const TaskDetails = () => {
               value={submitContent}
               onChange={(e) => setSubmitContent(e.target.value)}
               rows={6}
-              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-orange transition-colors outline-none font-medium"
+              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-accent transition-colors outline-none font-medium"
               placeholder="Provide a detailed summary of your work, links to files, or any final notes..."
             />
           </div>
@@ -551,7 +551,7 @@ const TaskDetails = () => {
                 setReviewData((prev) => ({ ...prev, feedback: e.target.value }))
               }
               rows={4}
-              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-orange transition-colors outline-none font-medium"
+              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-accent transition-colors outline-none font-medium"
               placeholder="Provide constructive feedback for the student..."
             />
           </div>
@@ -567,7 +567,7 @@ const TaskDetails = () => {
               onClick={handleReviewTask}
               disabled={actionLoading}
               className={`px-8 py-3 font-black uppercase tracking-widest rounded-xl transition-all shadow-glow ${
-                reviewData.satisfied ? 'bg-green-500 hover:bg-green-600 text-white' : 'bg-brand-orange hover:bg-orange-600 text-white'
+                reviewData.satisfied ? 'bg-green-500 hover:bg-green-600 text-white' : 'bg-brand-accent hover:bg-orange-600 text-white'
               }`}
             >
               {actionLoading ? (
@@ -601,7 +601,7 @@ const TaskDetails = () => {
               value={reassignReason}
               onChange={(e) => setReassignReason(e.target.value)}
               rows={3}
-              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-orange transition-colors outline-none font-medium"
+              className="w-full bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-accent transition-colors outline-none font-medium"
               placeholder="Briefly explain why this needs reassignment..."
             />
           </div>

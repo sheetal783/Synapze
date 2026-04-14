@@ -128,7 +128,7 @@ const PostTask = () => {
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-10 gap-6">
           <button
             onClick={() => navigate(-1)}
-            className="inline-flex items-center space-x-2 text-brand-text-secondary hover:text-brand-orange transition-colors group"
+            className="inline-flex items-center space-x-2 text-brand-text-secondary hover:text-brand-accent transition-colors group"
           >
             <ArrowLeft
               size={18}
@@ -140,7 +140,7 @@ const PostTask = () => {
           </button>
 
           <h1 className="text-4xl font-black tracking-tight text-white flex items-center space-x-3">
-            <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 flex items-center justify-center text-brand-orange shadow-glow">
+            <div className="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent shadow-glow">
               <PlusCircle size={28} />
             </div>
             <span>
@@ -183,7 +183,7 @@ const PostTask = () => {
                 name="title"
                 value={formData.title}
                 onChange={handleChange}
-                className={`w-full bg-brand-dark border ${errors.title ? "border-red-500" : "border-brand-border"} rounded-xl p-4 text-white focus:border-brand-orange transition-all outline-none font-bold text-lg placeholder:text-brand-text-muted/50`}
+                className={`w-full bg-brand-dark border ${errors.title ? "border-red-500" : "border-brand-border"} rounded-xl p-4 text-white focus:border-brand-accent transition-all outline-none font-bold text-lg placeholder:text-brand-text-muted/50`}
                 placeholder="e.g., Design a Neural Network Architecture"
                 maxLength={100}
               />
@@ -208,7 +208,7 @@ const PostTask = () => {
                 value={formData.description}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full bg-brand-dark border ${errors.description ? "border-red-500" : "border-brand-border"} rounded-xl p-4 text-white focus:border-brand-orange transition-all outline-none font-medium leading-relaxed placeholder:text-brand-text-muted/50`}
+                className={`w-full bg-brand-dark border ${errors.description ? "border-red-500" : "border-brand-border"} rounded-xl p-4 text-white focus:border-brand-accent transition-all outline-none font-medium leading-relaxed placeholder:text-brand-text-muted/50`}
                 placeholder="Provide details about the task, requirements, and expected deliverables..."
                 maxLength={2000}
               />
@@ -237,7 +237,7 @@ const PostTask = () => {
                 {formData.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="px-4 py-2 bg-brand-orange/10 border border-brand-orange/30 text-brand-orange rounded-xl text-xs font-black uppercase tracking-widest flex items-center space-x-2 animate-fade-in"
+                    className="px-4 py-2 bg-brand-accent/10 border border-brand-accent/30 text-brand-accent rounded-xl text-xs font-black uppercase tracking-widest flex items-center space-x-2 animate-fade-in"
                   >
                     <span>{skill}</span>
                     <button
@@ -256,7 +256,7 @@ const PostTask = () => {
                 <select
                   value={newSkill}
                   onChange={(e) => setNewSkill(e.target.value)}
-                  className="flex-1 bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-orange transition-all outline-none font-bold text-sm"
+                  className="flex-1 bg-brand-dark border border-brand-border rounded-xl p-4 text-white focus:border-brand-accent transition-all outline-none font-bold text-sm"
                   disabled={formData.skills.length >= 5}
                 >
                   <option value="" className="bg-brand-dark">
@@ -278,7 +278,7 @@ const PostTask = () => {
                   type="button"
                   onClick={() => handleAddSkill(newSkill)}
                   disabled={!newSkill || formData.skills.length >= 5}
-                  className="w-14 h-14 bg-white/5 border border-brand-border/50 text-white rounded-xl flex items-center justify-center hover:bg-brand-orange hover:border-brand-orange transition-all disabled:opacity-30"
+                  className="w-14 h-14 bg-white/5 border border-brand-border/50 text-white rounded-xl flex items-center justify-center hover:bg-brand-accent hover:border-brand-accent transition-all disabled:opacity-30"
                 >
                   <Plus size={24} />
                 </button>
@@ -308,15 +308,15 @@ const PostTask = () => {
                     onChange={handleChange}
                     min={1}
                     max={100}
-                    className={`w-full bg-brand-dark border ${errors.creditPoints ? "border-red-500" : "border-brand-border"} rounded-xl p-4 pl-12 text-white focus:border-brand-orange transition-all outline-none font-black text-xl`}
+                    className={`w-full bg-brand-dark border ${errors.creditPoints ? "border-red-500" : "border-brand-border"} rounded-xl p-4 pl-12 text-white focus:border-brand-accent transition-all outline-none font-black text-xl`}
                   />
                   <Award
                     size={20}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-orange shadow-glow"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-brand-accent shadow-glow"
                   />
                 </div>
                 <div className="mt-2 flex items-center space-x-2 opacity-60">
-                  <Info size={12} className="text-brand-orange" />
+                  <Info size={12} className="text-brand-accent" />
                   <span className="text-[10px] font-bold uppercase tracking-widest text-brand-text-muted">
                     Credits awarded upon mission success
                   </span>
@@ -355,15 +355,15 @@ const PostTask = () => {
 
           {/* Summary */}
           <div className="bg-brand-surface border border-brand-border rounded-2xl p-6 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-brand-orange/5 group-hover:bg-brand-orange/10 transition-colors"></div>
+            <div className="absolute inset-0 bg-brand-accent/5 group-hover:bg-brand-accent/10 transition-colors"></div>
             <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div>
-                <h3 className="text-xs font-black text-brand-orange uppercase tracking-[.25em] mb-4">
+                <h3 className="text-xs font-black text-brand-accent uppercase tracking-[.25em] mb-4">
                   Mission Parameters
                 </h3>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-2">
                   <div className="flex items-center space-x-2">
-                    <div className="w-1 h-1 rounded-full bg-brand-orange"></div>
+                    <div className="w-1 h-1 rounded-full bg-brand-accent"></div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">
                       Protocol:
                     </span>
@@ -372,7 +372,7 @@ const PostTask = () => {
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-1 h-1 rounded-full bg-brand-orange"></div>
+                    <div className="w-1 h-1 rounded-full bg-brand-accent"></div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">
                       Reward:
                     </span>
@@ -381,7 +381,7 @@ const PostTask = () => {
                     </span>
                   </div>
                   <div className="flex items-center space-x-2">
-                    <div className="w-1 h-1 rounded-full bg-brand-orange"></div>
+                    <div className="w-1 h-1 rounded-full bg-brand-accent"></div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-text-muted">
                       Specialization:
                     </span>

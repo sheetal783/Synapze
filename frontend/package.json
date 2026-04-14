@@ -1,5 +1,5 @@
 {
-  "name": "mits-skillflare-frontend",
+  "name": "mits-Synapze-frontend",
   "private": true,
   "version": "1.0.0",
   "type": "module",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "axios": "^1.6.7",
+    "firebase": "^12.12.0",
     "lucide-react": "^0.330.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

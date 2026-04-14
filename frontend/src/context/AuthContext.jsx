@@ -71,6 +71,28 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const loginWithFirebase = async (idToken, profile = {}) => {
+    try {
+      const response = await authService.firebaseAuth(idToken, profile);
+      setUser(response.user);
+      setIsAuthenticated(true);
+      if (response.token) {
+        localStorage.setItem("token", response.token);
+      }
+      toast.success(`Welcome, ${response.user.name}!`);
+      return response;
+    } catch (error) {
+      let message =
+        error.response?.data?.message || "Firebase authentication failed";
+      if (error.code === "ERR_NETWORK") {
+        message =
+          "Cannot connect to server. Please ensure the backend is running.";
+      }
+      toast.error(message);
+      throw error;
+    }
+  };
+
   const register = async (userData) => {
     try {
       const response = await authService.register(userData);
@@ -127,6 +149,7 @@ export const AuthProvider = ({ children }) => {
     loading,
     isAuthenticated,
     login,
+    loginWithFirebase,
     register,
     logout,
     updateUser,

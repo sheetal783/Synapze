@@ -2,6 +2,7 @@ import express from "express";
 import {
   register,
   login,
+  firebaseAuth,
   getSession,
   getMe,
   logout,
@@ -14,6 +15,7 @@ import { authLimiter } from "../middleware/rateLimiter.js";
 import {
   registerRules,
   loginRules,
+  firebaseAuthRules,
   updatePasswordRules,
 } from "../middleware/validate.js";
 
@@ -21,6 +23,7 @@ const router = express.Router();
 
 router.post("/register", authLimiter, registerRules, register);
 router.post("/login", authLimiter, loginRules, login);
+router.post("/firebase", authLimiter, firebaseAuthRules, firebaseAuth);
 router.get("/session", getSession);
 router.get("/logout", logout); // No need for protect to logout safely
 
